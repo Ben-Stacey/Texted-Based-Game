@@ -146,8 +146,8 @@ public class GameFile{
             System.out.println("Try Again");
         }
 
-        System.out.println(map insert here);
-        System.out.println("Where should we go?\n1. The Town\n2. The desert\n3. The Ocean")
+        System.out.println(); //map insert here, arguments
+        System.out.println("Where should we go?\n1. The Town\n2. The desert\n3. The Ocean");
         scan = new Scanner(System.in);
         int a = scan.nextInt();
         if(a == 1){
@@ -171,7 +171,7 @@ public class GameFile{
         int answer = scan.nextInt();
         if(answer == 1){
             System.out.println("Awesome, there is a forest not far from here you can go there \nThank you");
-            System.out.println("I will need something to catch some deer, what should I use?")
+            System.out.println("I will need something to catch some deer, what should I use?");
             System.out.println("1. Spear\n2. Bow");
             scan = new Scanner(System.in);
             int a = scan.nextInt();
