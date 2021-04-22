@@ -9,12 +9,12 @@ Welcome, in this game you will go on an adventure
 On your adventure you will meet things that will help you and things that will try to stop you
 This adventure is not for the faint of heart
 Do you have what it takes??
-	Yes 
-		Alright, let the adventure begin
-	No
-		Try again
+- Yes 
+  - Alright, let the adventure begin
+- No
+  - Try again
 
-#waking up
+# waking up
 My eyes open slowly as the light beams into my eyes
 I am surrounded by trees as the birds chirp above me
 	who am i?
@@ -22,7 +22,7 @@ I am surrounded by trees as the birds chirp above me
 	What do I do?
 		Maybe I should go for a walk and try and find someone
 
-#river crossing
+# river crossing
 I come to the end of the forest and I can see path and a river
 	Follow the path 
 	jump on the boat and head down the river 

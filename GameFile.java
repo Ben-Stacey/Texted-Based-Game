@@ -158,8 +158,8 @@ public class GameFile{
             System.out.println("Try Again");
         }
 
-        System.out.println(map insert here);
-        System.out.println("Where should we go?\n1. The Town\n2. The desert\n3. The Ocean")
+        System.out.println(); //map insert here, arguments
+        System.out.println("Where should we go?\n1. The Town\n2. The desert\n3. The Ocean");
         scan = new Scanner(System.in);
         int a = scan.nextInt();
         if(a == 1){
