@@ -18,29 +18,41 @@ public class GameFile{
     private Scanner scan;
 
     private int hp = 100;
+    private int bank = 0;
+
+    /** 
+     * Starts off the running of the program. 
+     * Only need to call the first method and the rest 
+     * of the calls re imbedded in the methods so that the 
+     * next method works when the correct conditions are met 
+     */
     public static void main(String[]args){
         GameFile game = new GameFile();
         game.playerSetUp();
-        game.gameSetup();
-        game.wakingUp();
-        game.riverCrossing();
-        game.oldMan();
+        gameSetup();
+        wakingUp();
+        riverCrossing();
+        oldMan();
     }
 
-    public void playerSetUp(){
+    /** 
+     * 
+     */
+
+    public void playSetup(){
         System.out.println("Please enter a username:");
         scan = new Scanner(System.in);
         playerName = scan.nextLine();
         System.out.println("Welcome " + playerName);
-        System.out.print("");
+        System.out.println("");
         System.out.println("HP: " + hp);
-        System.out.print("");
+        System.out.println("");
         System.out.println("Armour " + myArmour);
-        System.out.print("");
+        System.out.println("");
         System.out.println("Weapon " + myWeapon);
-        System.out.print("");
+        System.out.println("");
         System.out.println("Inventory " + inventory);
-        System.out.print("");
+        System.out.println("");
         
     }
 
@@ -159,6 +171,9 @@ public class GameFile{
         }else if(a == 3){
             System.out.println("Good choice");
             ocean();
+        }else if(a == 4){
+            System.out.println("Good choice");
+            mountain();
         }else{
             System.out.println("Try Again");
         }
@@ -171,7 +186,7 @@ public class GameFile{
         int answer = scan.nextInt();
         if(answer == 1){
             System.out.println("Awesome, there is a forest not far from here you can go there \nThank you");
-            System.out.println("I will need something to catch some deer, what should I use?")
+            System.out.println("I will need something to catch some deer, what should I use?");
             System.out.println("1. Spear\n2. Bow");
             scan = new Scanner(System.in);
             int a = scan.nextInt();
@@ -186,8 +201,48 @@ public class GameFile{
                 System.out.println("...");
                 System.out.println("...");
                 System.out.println("After a couple hours I have only seen one deer and before I could get close it ran away\nMaybe I should try something else");
+                System.out.println("This will be difficult to make\nI cut a branch off a tree and make some thread from a flaks bush. I strip the flak leave into strips and weave it into a string\nAfter making a few arrows as well I’m ready to go hunting\nI sit up in a tree and a wait for the first deer to come by");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("After a while I see a deer, it slowly walks towards me as I take aim and release\nThe deer falls where it stands\nI’m over the moon with exactment \nI sit back in the tree and after a while I get 2 more\nI skin the deer and take some meat for the road and take the skins back to the tailor");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("The tailor makes me my new clothes and sends me on my way\nHere is some money for the left over skin as well");
+                //add in about additional money from the deer skins and then u can buy items
+                System.out.println("Would like to buy something with your money?");
+                System.out.println("1. Yes\n2. No");
+                scan = new Scanner(System.in);
+                int answer2 = scan.nextInt();
+                if(answer2 == 1){
+                    System.out.println("Here is what we sell: \n1. Trap");
+                    scan = new Scanner(System.in);
+                    int b = scan.nextInt();
+                    if(b == 1){
+                        System.out.println("That will be $10");
+                        System.out.println("1. Yes\n2. No");
+                        scan = new Scanner(System.in);
+                        int c = scan.nextInt();
+                        if(c == 1){
+                            System.out.println("Purchase Complete");
+                            bank += -10;
+                        }else if(c == 2){
+                            //System.out.println("Try Again");
+                            //bank = -10;
+                        }else{
+                            System.out.println("Try Again");
+                        }
+                    }else{
+                        System.out.println("Try Again");
+                    }
+                }else if(answer2 == 2){
+                    //other items
+                }else{
+                    System.out.println("Try Again");
+                }
             }else if(a == 2){
-                System.out.println("Alright, let the adventure begin");
+                //System.out.println("Alright, let the adventure begin");
             }else{
                 System.out.println("Please Try Again");
             }
@@ -197,12 +252,44 @@ public class GameFile{
             System.out.println("Try Again");
         }
     }
-
     public void desert(){
-
+        System.out.println("The desert is hot and dry. You might want to find a few water bottles to take some water with you, you don’t get dehydrated");
+        System.out.println("After a long walk you come to a small village, you go into a small shop.\nHello, do u have any water bottles?\nYes, How many do you want?\n1. 1\n2. 2");
+        scan = new Scanner(System.in);
+        int s = scan.nextInt();
+        if(s == 1){
+            System.out.println("Ok, that'll be $20\nOh no I don’t have any money\nWell why do u want them\nI am going on an adventure to the desert\nNo u don’t want to go there, you’ll never survive\nIf it is an adventure your looking you should go to the mountains");
+        }else if(s == 2){
+            System.out.println("Ok, that'll be $20\nOh no I don’t have any money\nWell why do u want them\nI am going on an adventure to the desert\nNo u don’t want to go there, you’ll never survive\nIf it is an adventure your looking you should go to the mountains");
+        }else{
+            System.out.println("Try Again");
+        }
     }
 
     public void ocean(){
+        System.out.println("Your swimming ability isn’t great, head to the closest town and find boat\nAfter a long walk you come to a small village, you go to the port and find a fisherman");
+        System.out.println("Hello, can I get a ride on your boat?\nWhy do u want to a ride?\nI am going on an adventure across the ocean\nNo u don’t want to go there, the ocean is harsh and dangerous place\nIf it is an adventure your looking you should go to the mountains");
+    }
+
+    public void mountain(){
+        System.out.println("I see the same man standing a few doors down and go talk to him\nI tell him how I am on an adventure into the mountains and ask him is there is anything I may need before I go there\nHe looks at me with a terrifying look\nYou know what’s in those mountains, don’t you?");
+        System.out.println("1. Yes\n2. No");
+        scan = new Scanner(System.in);
+        int s = scan.nextInt();
+        if(s == 1){
+            System.out.println("Yes, but do have anything else to tell me about it?\nThere are dangerous beasts that live in those mountains \nI even hear there is a dragon that protects the highest peak\nNo man has ever come out of there alive");
+        }else if(s == 2){
+            System.out.println("There are dangerous beasts that live in those mountains \nI even hear there is a dragon that protects the highest peak\nNo man has ever come out of there alive");
+        }else{
+            System.out.println("Try Again");
+        }
+
 
     }
+
+    /** 
+    public void System.out.println(String p){
+        System.out.println(p);
+    }
+    */
 }

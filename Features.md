@@ -11,6 +11,9 @@ Inventory
 * inventory can be expanded
 * each item has a space value associated with it that determines how many items you can hold
 
+Items you can buy at the shop
+* trap
+
 Spells
 * strength
 * regeneration

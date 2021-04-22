@@ -432,6 +432,7 @@ I feel dazed and confused
 All my belongings are missing
 
 
+# lost gear
 Find all my gear
 
 Meet the centor and do his quest, get a shield
