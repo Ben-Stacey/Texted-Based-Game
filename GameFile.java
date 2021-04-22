@@ -2,6 +2,11 @@ import java.util.Scanner;
 import java.security.PrivateKey;
 import java.util.Random;
 
+/**
+ * This is a texted based game
+ * @author Ben Stacey
+ * @author Liam Flynn
+ */
 public class GameFile{
     private String playerName = "";
 
@@ -64,7 +69,9 @@ public class GameFile{
     }
 
     /** 
-     * 
+     * playSetup() method
+     * This method has all the information about setting up your character
+     * Allows you to choose your player name
      */
 
     public void playSetup(){
@@ -79,10 +86,15 @@ public class GameFile{
         System.out.println("");
         System.out.println("Weapon " + myWeapon);
         System.out.println("");
-        System.out.println("Inventory " + inventory);
+        System.out.println("Inventory " + inventoryString);
         System.out.println("");
         
     }
+
+    /** 
+     * gameSetup() method
+     * This method allows the player to setup the game and gives them a brief about how the game works
+     */ 
 
     public void gameSetup(){
         System.out.println("To play this game you will be questions and then given possible responses\nType the answer you want to take exactly as it is stated in the question otherwise the program will ask you to try again\nThis is still in development and I already apologies if this crashes during your game\nPlease let me know if this crashes, where it crashes and why.");
@@ -100,6 +112,10 @@ public class GameFile{
         }
     }
 
+    /**
+     * wakingUp() method
+     * Start of the game, your character wakes up
+     */
     public void wakingUp(){
         System.out.println("My eyes open slowly as the light beams into my eyes\nI am surrounded by trees as the birds chirp above me\n(Who am I? or What do I do?)");
         System.out.println("1. Who am I?\n2. What do I do?");
@@ -114,6 +130,12 @@ public class GameFile{
         }
     }
 
+    /**
+     * riverCrossing() method
+     * This method has the player travelling down a river
+     * The player must type left and right to navigate there way down the river
+     * Failure will result in the player having to do that again
+     */
     public void riverCrossing(){
         System.out.println("I come to the end of the forest and I can see path and a river\n(Follow the path)");
         System.out.println("1. Follow the path");
@@ -170,6 +192,12 @@ public class GameFile{
         }
     }
 
+    /**
+     * oldMan() method
+     * This method is where the main part of the story starts 
+     * You meet an old man and he gives a map
+     * The player then decides how they want to play the story
+     */
     public void oldMan(){
         System.out.println("You see a house in the distance, and you walk up to it\nKnock of the door\nAn old man opens the door");
         System.out.println("Old Man: 'How can I help?'");
@@ -207,6 +235,11 @@ public class GameFile{
         }
     }
 
+    /**
+     * shop() method
+     * The shop method intoduces the player in to the purchasing system in the game
+     * You can do challenged for the shop keeper which will earn you moeny
+     */
     public void shop(){
         System.out.println("You walk inside the shop\nHello, I’m going an adventure into the mountains and I need some warm clothes. The only problem is that I haven’t got any money\nHmmm, well I need some 3 new deer skins to make clothes and if you collect them ill make you your clothes for free. Do you accept?");
         System.out.println("1. Yes\n2. No");
@@ -222,7 +255,7 @@ public class GameFile{
                 System.out.println("Alright, let the adventure begin\nGood choice, although it might be harder to the get close to the deer");
                 System.out.println("I head out to the forest");
                 System.out.println("After snapping of a solid branch and shaving a point into the end I jump into to watch for a deer to come by.");
-                inventory += spear;
+                inventoryString += spear;
                 System.out.println("Item accpired " + spear);
                 System.out.println("Item has been added to your inventory");
                 System.out.println("...");
@@ -230,8 +263,8 @@ public class GameFile{
                 System.out.println("...");
                 System.out.println("After a couple hours I have only seen one deer and before I could get close it ran away\nMaybe I should try something else");
                 System.out.println("This will be difficult to make\nI cut a branch off a tree and make some thread from a flaks bush. I strip the flak leave into strips and weave it into a string\nAfter making a few arrows as well I’m ready to go hunting\nI sit up in a tree and a wait for the first deer to come by");
-                inventory += bow;
-                inventory += arrow;
+                inventoryString += bow;
+                inventoryString += arrow;
                 System.out.println("Bow and 3 arrows added to inventory");
                 System.out.println("...");
                 System.out.println("...");
@@ -284,6 +317,11 @@ public class GameFile{
             System.out.println("Try Again");
         }
     }
+
+    /**
+     * desert() method
+     * Takes the user to the desert 
+     */
     public void desert(){
         System.out.println("The desert is hot and dry. You might want to find a few water bottles to take some water with you, you don’t get dehydrated");
         System.out.println("After a long walk you come to a small village, you go into a small shop.\nHello, do u have any water bottles?\nYes, How many do you want?\n1. 1\n2. 2");
@@ -298,11 +336,19 @@ public class GameFile{
         }
     }
 
+    /**
+     * ocean() method
+     * Takes the player to the ocean
+     */
     public void ocean(){
         System.out.println("Your swimming ability isn’t great, head to the closest town and find boat\nAfter a long walk you come to a small village, you go to the port and find a fisherman");
         System.out.println("Hello, can I get a ride on your boat?\nWhy do u want to a ride?\nI am going on an adventure across the ocean\nNo u don’t want to go there, the ocean is harsh and dangerous place\nIf it is an adventure your looking you should go to the mountains");
     }
 
+    /**
+     * mountain() method
+     * Takes the player to the mountains
+     */
     public void mountain(){
         System.out.println("I see the same man standing a few doors down and go talk to him\nI tell him how I am on an adventure into the mountains and ask him is there is anything I may need before I go there\nHe looks at me with a terrifying look\nYou know what’s in those mountains, don’t you?");
         System.out.println("1. Yes\n2. No");
@@ -316,6 +362,7 @@ public class GameFile{
             System.out.println("Try Again");
         }
 
+        System.out.println("I would not even think about heading into those mountains without a sword\nThere is a blacksmith in town he can make you a sword\nBut I don’t have any money\nThen you should go talk to the mayor he has some tasks that he will pay you to do\nYou walk into the town hall and see the mayor\nHello mayor, I hear you have some tasks that I can do?\nHello Traveler, yes, I do what kind of task would you like?");
 
     }
 

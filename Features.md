@@ -6,6 +6,8 @@ all things that are dragon related can only be achieved once when you defeat the
 
 memory log it subconconsiously added things you do to memory log. Could be an easter egg
 
+Lots of methods of different jobs you can do for the shop keeper and it randomised to which one you can get
+
 Inventory 
 * inventory has 10 spots to start with
 * inventory can be expanded
