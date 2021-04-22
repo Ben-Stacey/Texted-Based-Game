@@ -1,3 +1,5 @@
+# game intro 
+
 To play this game you will be questions and then given possible responses
 Type the answer you want to take exactly as it is stated in the question otherwise the program will ask you to try again
 This is still in development and I already apologies if this crashes during your game
@@ -12,6 +14,7 @@ Do you have what it takes??
 	No
 		Try again
 
+#waking up
 My eyes open slowly as the light beams into my eyes
 I am surrounded by trees as the birds chirp above me
 	who am i?
@@ -19,6 +22,7 @@ I am surrounded by trees as the birds chirp above me
 	What do I do?
 		Maybe I should go for a walk and try and find someone
 
+#river crossing
 I come to the end of the forest and I can see path and a river
 	Follow the path 
 	jump on the boat and head down the river 
@@ -30,7 +34,8 @@ I come to the end of the forest and I can see path and a river
 			//the order is left right left
 			if u die game over and start again
 			if you make it u survive
-			
+
+# old man
 you see a house in the distance, and you walk up to it
 knock of the door
 an old man opens the door
@@ -52,6 +57,7 @@ Hello, I am looking for some warm clothes do you know a where I can acquire some
 There is a tailor 3 doors down 
 Thank you
 
+# shop
 You walk inside the shop
 Hello, I’m going an adventure into the mountains and I need some warm clothes. The only problem is that I haven’t got any money
 Hmmm, well I need some 3 new deer skins to make clothes and if you collect them ill make you your clothes for free. Do you accept?
@@ -94,7 +100,7 @@ I come back to the trap in the morning and it is empty
 Maybe I should try something else
 	No
 
-	
+# Desert
 	The desert
 		The desert is hot and dry. You might want to find a few water bottles to take some water with you, you don’t get dehydrated
 			After a long walk you come to a small village, you go into a small shop.
@@ -117,6 +123,7 @@ After a long walk you come to a small village, you go to the port and find a fis
 					No u don’t want to go there, the ocean is harsh and dangerous place 
 					If it is an adventure your looking you should go to the mountains
 
+# mountain man
 Time to find the next task
 I see the same man standing a few doors down and go talk to him
 I tell him how I am on an adventure into the mountains and ask him is there is anything I may need before I go there

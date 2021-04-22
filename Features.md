@@ -4,6 +4,8 @@ Plans for the game
 
 all things that are dragon related can only be achieved once when you defeat the final dragon and they all have special powers and high hit points
 
+memory log it subconconsiously added things you do to memory log. Could be an easter egg
+
 Inventory 
 * inventory has 10 spots to start with
 * inventory can be expanded
