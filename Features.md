@@ -2,14 +2,59 @@ Future Features to implement:
 
 Plans for the game
 
+all things that are dragon related can only be achieved once when you defeat the final dragon and they all have special powers and high hit points
+
 Inventory 
+* inventory has 10 spots to start with
+* inventory can be expanded
+* each item has a space value associated with it that determines how many items you can hold
+
 Spells
+* strength
+* regeneration
+* 
+
 Weapons
-Armor
+* sword
+* bow
+* blades
+* arrows
+* fishing rod
+* spear
+
+food types
+* water 
+* bread
+* meat
+* dragon flesh
+* donkey
+* penguin
+* meercat
+
+Armor types
+* helmet
+* chestplate or tunic
+* leggings 
+* boots
+* leather
+* iron
+* dragon
+* feather
+
 Upgrades
+* weapons can be upgraded and repaired at the blacksmith
+
 HP
+* starts at 100
+
 Power level
+* starts at 0 and rises over time from defeating eninemies. Is reset when you die
+
 Hit points
+* hit points are dealth by npc and yourself. They can be regained through health regaining points throughtout the game, before boss battles and by potions
+
+you can make a player name
+
 Could do random wait times with hunting and fishing
 Could make it so you have to say reel the fish in 
 Enter values and if it matches you win the random values
