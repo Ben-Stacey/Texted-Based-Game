@@ -6,7 +6,7 @@ import java.util.Scanner;
 * @author Ben Stacey
 * @author Liam Flynn
  */
-public class GameFile{
+public class Shop{
     private String playerName = "";
 
     private String myWeapon = "Empty";
@@ -70,7 +70,7 @@ public class GameFile{
      * next method works when the correct conditions are met 
      */
     public static void main(String[]args){
-        GameFile game = new GameFile();
+        Shop game = new Shop();
         game.playerSetUp();
         gameSetup();
         wakingUp();
@@ -657,7 +657,7 @@ public class GameFile{
             print("What do you want to craft?\n1. Furr Jacket\n2. Furr Pants");
             scan = new Scanner(System.in);
             int s1 = scan.nextInt();
-            if(s1 == 1){}
+            if(s1 == 1){
                 print("Ok, that'll be $50");
                 bank -= 50;
                 bank();
@@ -681,7 +681,11 @@ public class GameFile{
         }
     }
 
-    public void blackSmith(){
+    /**
+     * blackSmithWareWolf() method
+     * 
+     */
+    public void blackSmithWareWolf(){
         
     }
 
