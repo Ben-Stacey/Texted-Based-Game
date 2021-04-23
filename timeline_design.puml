@@ -1,0 +1,42 @@
+@startuml game
+
+actor :player:
+
+usecase (player\nsetup) as playerSetup
+usecase (game\nsetup) as gameSetup
+usecase (wake\nup) as wakeUp
+usecase (river\ncrossing) as riverCrossing
+usecase (old\nman) as oldMan
+usecase (shop) as shop
+usecase (desert) as desert
+usecase (ocean) as ocean
+usecase (mountain) as mountain
+usecase (hunting) as hunting
+usecase (fishing) as fishing
+usecase (mayor) as mayor
+usecase (skin) as skin
+usecase (jaguar) as jaguar
+usecase (logging) as logging
+usecase (tailor) as tailor
+usecase (beast) as beast
+
+player -- playerSetup
+
+playerSetup ..> gameSetup
+gameSetup ..> wakeUp
+wakeUp ..> riverCrossing
+riverCrossing ..> oldMan
+oldMan ..> desert
+oldMan ..> ocean
+oldMan ..> mountain
+oldMan ..> mayor
+mayor ..> hunting
+mayor ..> fishing
+mayor ..> logging
+logging ..> jaguar
+hunting ..> beast
+fishing ..> beast
+jaguar ..> beast
+
+
+@enduml

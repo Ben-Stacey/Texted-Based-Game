@@ -215,6 +215,8 @@ tree back to the village
 I went and talked to the mayor
 Nice job, we really needed your help
 Here you go +$500
+
+# tailor
 Do you want to sell the jaguar skin or take it to the tailor?
 	sell 
 		Walk into the shop
@@ -244,6 +246,8 @@ Do you want to sell the jaguar skin or take it to the tailor?
 							Ok
 							I finish off cutting down some and after a few hours of hard work I have dragged all the 
 tree back to the village
+
+# beast
 I went and talked to the mayor
 Nice job, we really needed your help
 Here you go +$500

@@ -575,7 +575,17 @@ public class GameFile{
     }
 
     public void beast(){
-
+        print("I went and talked to the mayor\nWe really needed your help\nDo you want to help?\n1. Yes\n2. No");
+        scan = new Scanner(System
+        int s = scan.nextInt();
+        if(s == 1){
+            print("");
+        }else if(s == 2){
+            print("Try Again"); 
+        }else{
+            print("Try Again"); 
+        }
+        
     }
 
     /**
