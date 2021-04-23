@@ -8,6 +8,10 @@ memory log it subconconsiously added things you do to memory log. Could be an ea
 
 Lots of methods of different jobs you can do for the shop keeper and it randomised to which one you can get
 
+mining
+
+Food bar
+
 Inventory 
 * inventory has 10 spots to start with
 * inventory can be expanded
