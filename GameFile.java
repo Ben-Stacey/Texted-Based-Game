@@ -1,6 +1,5 @@
+import java.util.Random;
 import java.util.Scanner;
-
-
 
 /**
  * This is a texted based game
@@ -22,8 +21,10 @@ public class GameFile{
     private String axe = "Axe";
 
     private String jaguar = "Jaguar";
+    private String warewolf = "Warewolf";
 
     private String jaguarSkin = "Jaguar Skin";
+    private String warewolfSkin = "Warewolf Skin";
 
     private String leatherTunic = "Leather Tunic";
     private String leatherLeggings = "Leather Leggings";
@@ -39,6 +40,8 @@ public class GameFile{
     private String dragonBoots = "Dragon Boots";
     private String hat = "Hat";
     private String gloves = " Gloves";
+    private String furrPants = "Furr Pants";
+    private String furrJacket = "Furr Jacket";
 
     private String water = "Water";
     private String bread = "Bread";
@@ -299,21 +302,36 @@ public class GameFile{
     }
         
     /**
+     * randomTask()
+     * This is called in the mayor class, when called randomly picks
+     * the task you can do
+     */
+    public void randomTask(){
+        Random rand = new Random();
+        int r = rand.nextInt(2);
+        if(r == 0){
+            fishing();
+        }else if(r == 1){
+            hunting();
+        }else if(r == 2){
+            logging();
+        }
+    }
+
+    /**
      * mayor() method
      * The mayor gives out job which can get you money
      */
     public void mayor(){
-        print("Hello, I am the mayor. I can give you tasks that you can complete for money");
-        print("1. Go fishing\n2. Go hunting\n 3. Go logging");
+        print("Hello, I am the mayor. I can give you tasks that you can complete for money\nWould you like to do a challenge?");
+        print("1. Yes\n2. No");
         scan = new Scanner(System.in);
         int s = scan.nextInt();
         if(s == 1){
-            fishing();
+            print("Awsesome!");
+            randomTask();
         }else if(s == 2){
-            hunting();
-        }
-        else if(s == 3){
-            logging();
+            print("Try Again");
         }else{
             print("Try Again");
         }
@@ -526,13 +544,14 @@ public class GameFile{
             System.out.println("Try Again");
         }
     }
+}
 
     /**
      * tailor() methos
      * this allows you to sell and make animal skins into clothes or money
      * needs to be changed so any skin is accepted. im thinking of using an arrayList
      */
-    public void tailor(){
+    public void tailorJaguar(){
         print("Do you want to sell the jaguar skin or take it to the tailor?"); 
         print("1. Sell\n2. Tailor");
         scan = new Scanner(System.in);
@@ -570,21 +589,99 @@ public class GameFile{
         }
     }
 
+    /**
+     * bank() method
+     * Call this method to display the bank balance
+     */
     public void bank(){
         System.out.println("Bank balance is: $" + bank);
     }
 
+    /**
+     * beast()
+     * In this method the fighting the warewolf
+     */
     public void beast(){
         print("I went and talked to the mayor\nWe really needed your help\nDo you want to help?\n1. Yes\n2. No");
-        scan = new Scanner(System
+        scan = new Scanner(System.in);
         int s = scan.nextInt();
         if(s == 1){
-            print("");
+            print("Awesome, there has been a beast that has been coming and terrorizes the village on every full moon\nWhat kind of beast?\nIt is a werewolf!\nHow am I going to fight it I don’t have any weapons?\nHere take thig dagger and shield \nThe next full moon is tonight, wait here until nightfall and the beast will appear");
+            print("...");
+            print("...");
+            print("...");
+            print("Where should be hide?");
+            print("1. Town hall"); //additonal places to be added
+            print("Night falls\nI sit quietly and wait\nI see a dark grey figure slowly walk into the town\nI run out into the road and I grab my bow\nI load an arrow and aim at the Werewolf(+15)");
+            //put in the fighting mechanic
+            print("Yay I have slain the werewolf\nDo you want to skin the werewolf?");
+            scan = new Scanner(System.in);
+            int s1 = scan.nextInt();
+            if(s1 == 1){
+                skin();
+                print("Good job, You have slain the warewold");
+                warewolfTailor();
+                print("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
+                bank += 500;
+                bank();
+            }else if(s1 == 2){
+                print("Good job, You have slain the warewold");
+                print("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
+                bank += 500;
+                bank();
+            }else{
+                print("Try Again");
+            }
         }else if(s == 2){
             print("Try Again"); 
         }else{
             print("Try Again"); 
         }
+    }
+
+    /**
+     * warewolfTailor() method
+     * method that allows you to get the warewold skin made into things
+     * you can also sell it here
+     */
+    public void warewolfTailer(){
+        print("You can sell the skin at the local shop\nWalk into the shop\nI have a werewold\nNice would you like to sell it or craft it into something");
+        print("1. Sell\n2. Craft");
+        scan  = new Scanner(System.in);
+        int s = scan.nextInt();
+        if(s == 1){
+            print("Thanks, here $500");
+            bank += 500;
+            bank();
+        }else if(s == 2){
+            print("What do you want to craft?\n1. Furr Jacket\n2. Furr Pants");
+            scan = new Scanner(System.in);
+            int s1 = scan.nextInt();
+            if(s1 == 1){}
+                print("Ok, that'll be $50");
+                bank -= 50;
+                bank();
+                print("...");
+                print("...");
+                print("...");
+                print("Here you go, have a nice day");
+            }else if(s1 == 2){
+                print("Ok, that'll be $50");
+                bank -= 50;
+                bank();
+                print("...");
+                print("...");
+                print("...");
+                print("Here you go, have a nice day");
+            }else{
+                print("Try Again");
+            }
+        }else{
+            print("Try Again");
+        }
+    }
+
+    public void blackSmith(){
         
     }
 
@@ -597,3 +694,4 @@ public class GameFile{
         System.out.println(p);
     }                                                                                                                   
   }
+}
