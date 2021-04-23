@@ -10,6 +10,8 @@ Lots of methods of different jobs you can do for the shop keeper and it randomis
 
 mining
 
+multi dimednsional array containing the prices vs what they are
+
 Food bar
 
 Inventory 

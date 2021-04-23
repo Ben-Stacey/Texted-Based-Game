@@ -37,6 +37,8 @@ public class GameFile{
     private String dragonChestplate  = "Dragon Chestplate";
     private String dragonLeggings = "Dragon Leggins";
     private String dragonBoots = "Dragon Boots";
+    private String hat = "Hat";
+    private String gloves = " Gloves";
 
     private String water = "Water";
     private String bread = "Bread";
@@ -126,7 +128,7 @@ public class GameFile{
         scan = new Scanner(System.in);
         int answer = scan.nextInt();
         if(answer == 1){
-            System.out.println("I have no memory");
+            System.out.println(playerName);
         }else if(answer == 2){
             System.out.println("Maybe I should go for a walk and try and find someone");
         }else{
@@ -355,6 +357,11 @@ public class GameFile{
         }
     }
 
+    /**
+     * skin() method
+     * skinng an animal method
+     * This needs to be changed from jaguar skin to work with any animal 
+     */
     public void skin(){
         print("Do you want to skin the " + jaguar + "?");
         scan = new Scanner(System.in);
@@ -370,9 +377,12 @@ public class GameFile{
         }
     }
 
+    /**
+     * jaguar() method
+     * jaguar hitting sequence in this method
+     */
     public void jaguar(){
-        print("I arrive at the forest and start to cut down my first tree\n“russel” “russel”\nI turn around as I hear something in the bushes behind me\nA jaguar jumps out of the bush");
-		print("Oh no I need to fight the " + jaguar + " (15HP)\nWhich weapone should we use?");
+        print("Which weapone should we use?");
         print("1. Bow\n2. Axe");
         scan = new Scanner(System.in);
         s = scan.nextInt();
@@ -391,8 +401,8 @@ public class GameFile{
         }
     }
 
-            /**
-             * logging() method
+    /**
+     * logging() method
      * Logging is a method that allows you to get money
      */
     public void logging(){
@@ -401,15 +411,42 @@ public class GameFile{
         print("...");
         print("...");
         print("...");
-        jaguar();
-        print("I finish off cutting down some and after a few hours of hard work I have dragged all the\ntree back to the village\nI went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
-        bank += 500;
+        print("I arrive at the forest and start to cut down my first tree\n“russel” “russel”\nI turn around as I hear something in the bushes behind me\nA jaguar jumps out of the bush");
+		print("Do I want to fight the " + jaguar + " (15HP)");
+        scan = new Scanner(System.in);
+        int s = scan.nextInt();
+        print("1. Yes\n2. No");
+        if(s == 1){
+            jaguar();
+            print("I finish off cutting down some and after a few hours of hard work I have dragged all the tree back to the village");
+            bank += 500;
+            bank();
+            beast();
+        }else if(s == 2){
+            print("Ok\nI finish off cutting down some and after a few hours of hard work I have dragged all the tree back to the village");
+            bank += 500;
+            bank();
+            beast();
+        }else{
+            print("Try Again");
+        }
     }
 
+    /**
+     * health() method
+     * when called displays current player health
+     */
     public void health(){
         print("Your HP is: " + hp);
     }
 
+    /**
+     * inventory() method
+     * When this method id called the players inventory is displayed
+     */
+    public void inventory(){
+        System.out.println("My inventory has " + inventoryString);
+    }
      /**
      * hunting() method
      * Hunting is a method that allows you to get money
@@ -488,6 +525,57 @@ public class GameFile{
         }else{
             System.out.println("Try Again");
         }
+    }
+
+    /**
+     * tailor() methos
+     * this allows you to sell and make animal skins into clothes or money
+     * needs to be changed so any skin is accepted. im thinking of using an arrayList
+     */
+    public void tailor(){
+        print("Do you want to sell the jaguar skin or take it to the tailor?"); 
+        print("1. Sell\n2. Tailor");
+        scan = new Scanner(System.in);
+        int s = scan.nextInt();
+        if(s == 1){
+            print("Walk into the shop\nI have a jaguar skin to sell u\nAwesome here you go +$250");
+            bank += 250;
+            bank();
+        }else if(s == 2){
+            print("Hello traveler\nBack already I see\nYes, I have a jaguar skin would you be able to make me some more clothes\nSure, what kind do u want made?");
+            print("1. Hat\n2. Gloves");
+            scan = new Scanner(System.in);
+            int s1 = scan.nextInt();
+            if(s1 == 1){
+                print("Ok, thatll be $50\nHere you go");
+                bank -= 50;
+                bank();
+                print("...");
+                print("...");
+                print("...");
+                print("All done, have a nice day");
+            }else if(s1 == 2){
+                print("Ok, that’ll be $50\nHere you go");
+                bank -= 50;
+                bank();
+                print("...");
+                print("...");
+                print("...");
+                print("All done, have a nice day");
+            }else{
+                print("Try Again");
+            }
+        }else{
+            print("Try Again");
+        }
+    }
+
+    public void bank(){
+        System.out.println("Bank balance is: $" + bank);
+    }
+
+    public void beast(){
+
     }
 
     /**
