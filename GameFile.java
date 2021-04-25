@@ -6,7 +6,7 @@ import java.util.Scanner;
 * @author Ben Stacey
 * @author Liam Flynn
  */
-public class gameStartup{
+public class GameFile{
     private String playerName = "";
 
     private String myWeapon = "Empty";
@@ -70,7 +70,7 @@ public class gameStartup{
      * next method works when the correct conditions are met 
      */
     public static void main(String[]args){
-        Shop game = new Shop();
+        GameFile game = new GameFile();
         game.playerSetUp();
         gameSetup();
         wakingUp();
