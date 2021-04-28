@@ -285,6 +285,7 @@ Where should we hide?
 Nice job, we really needed your help
 Here you go +$500
 
+# tailor
 	Tailor shop
 		Night falls
 		I sit quietly and wait
@@ -308,6 +309,7 @@ Here you go +$500
 Nice job, we really needed your help
 Here you go +$500
 
+# blacksmith
 	Blacksmith
 		Night falls
 		I sit quietly and wait

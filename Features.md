@@ -2,6 +2,11 @@ Future Features to implement:
 
 Plans for the game
 
+* mayor goes to medievil
+* mountain goes to futuristic city
+* ocean go to atlantis
+* desert goes to acient egypt
+
 all things that are dragon related can only be achieved once when you defeat the final dragon and they all have special powers and high hit points
 
 memory log it subconconsiously added things you do to memory log. Could be an easter egg
