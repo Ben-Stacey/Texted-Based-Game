@@ -353,6 +353,8 @@ Good choice
 Good choice
 			That will be $750
 		If u don’t have that try again
+
+# Entering the mountains
 Entering the mountains
 Are you ready to go to the mountains?
 	Yes
@@ -369,6 +371,8 @@ Are you ready to go to the mountains?
 		Start the journey along this path
 	No 
 		Try again
+
+# The cave
 The cave
 	The path leads to the opening of a cave
 	It is dark inside but there is nowhere else to go
@@ -417,6 +421,7 @@ Which way should I go?
 		Right
 			Wrong way go back
 
+# Heal
 Do you know you can heal yourself?
 If you eat food that you have collected, you heal will go back up
 Do you want to eat some food?
@@ -424,6 +429,8 @@ Do you want to eat some food?
 		Ok, your health is at 90/100
 	No
 		Ok, your health is at 80/100
+
+# lost gear
 
 Get knocked out
 I keep walking through the cave, and I can see a light 
@@ -438,7 +445,7 @@ I feel dazed and confused
 All my belongings are missing
 
 
-# lost gear
+
 Find all my gear
 
 Meet the centor and do his quest, get a shield
@@ -463,46 +470,51 @@ I can get you a shield but I need you to do a task for me, do you accept?
 		If you can take him down, I would really appreciate that, can you do it?
 			Yes
 				Awesome, he is north of here. 
-They sit in giant nests, be careful they are an unpredictable beast
-…
-…
-…
-After walking for a while, I came across a steep mountain side
-I look to the top where I can see a nest on the edge of a cliff
-They only way to get to it is to climb up the cliff
-Which arm should we move to climb the cliff?
-Left 
-	Oh no, you fell to your death
-Right
-	Which leg should we move to climb the cliff?
+		They sit in giant nests, be careful they are an unpredictable beast
+		…
+		…
+		…
+		After walking for a while, I came across a steep mountain side
+		I look to the top where I can see a nest on the edge of a cliff
+		They only way to get to it is to climb up the cliff
+		Which arm should we move to climb the cliff?
 		Left 
-			Which arm should we move to climb the cliff?
-				left 
-					Oh no, you fell to your death
-				Right
-						Which leg should we move to climb the cliff?
-							Left 
-								Wow, that was high
-								I can see the basilisk sitting in its nest
-					I slowly sneak up to the edge of the nest as I pull out my bow
-					Should I shoot close or far? 15hp
-						Close * 2 damage
-							You missed try again
-							-2 hp if miss
-						Far * 1 damage
-							Hit (-5hp)
-							Repeat until dead
-							
-							Right
-								Oh no, you fell to your death
-		right
 			Oh no, you fell to your death
+		Right
+			Which leg should we move to climb the cliff?
+				Left 
+					Which arm should we move to climb the cliff?
+						left 
+							Oh no, you fell to your death
+						Right
+								Which leg should we move to climb the cliff?
+									Left 
+										Wow, that was high
+										I can see the basilisk sitting in its nest
+							I slowly sneak up to the edge of the nest as I pull out my bow
+							Should I shoot close or far? 15hp
+								Close * 2 damage
+									You missed try again
+									-2 hp if miss
+								Far * 1 damage
+									Hit (-5hp)
+									Repeat until dead
+									
+									Right
+										Oh no, you fell to your death
+				right
+					Oh no, you fell to your death
 no
 	No
 		Try again
 
+# troll
 Fighting Sam the troll
 
+# troll crafting
 Add the troll skin to my shield so it is fireproof
 
+# castle invading and knights battle
+
+# final dragon
 Congrats Camantha you beat the Ben the dragon

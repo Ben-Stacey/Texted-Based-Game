@@ -90,10 +90,6 @@ public class GameFile{
     public static void main(String[]args){
         GameFile game = new GameFile();
         game.playerSetup();
-        gameSetup();
-        wakingUp();
-        riverCrossing();
-        oldMan();
     }
 
     /** 
@@ -104,8 +100,7 @@ public class GameFile{
 
     public void playerSetup(){
         System.out.println("Please enter a username:");
-        scan = new Scanner(System.in);
-        playerName = scan.nextLine();
+        playerName = scanner.nextLine();
         System.out.println("Welcome " + playerName);
         System.out.println("");
         System.out.println("HP: " + hp);
@@ -128,8 +123,7 @@ public class GameFile{
         
         System.out.println("Welcome, in this game you will go on an adventure\nOn your adventure you will meet things that will help you and things that will try to stop you\nThis adventure is not for the faint of heart\nDo you have what it takes?? (Yes or No)");
         System.out.println("1. Yes\n2. No");
-        scan = new Scanner(System.in);
-        int answer = scan.nextInt();
+        int answer = scanner.nextInt();
            if(answer == 1){
                System.out.println("Alright, let the adventure begin");
         }else if(answer == 2){
@@ -146,8 +140,7 @@ public class GameFile{
     public void wakingUp(){
         System.out.println("My eyes open slowly as the light beams into my eyes\nI am surrounded by trees as the birds chirp above me\n(Who am I? or What do I do?)");
         System.out.println("1. Who am I?\n2. What do I do?");
-        scan = new Scanner(System.in);
-        int answer = scan.nextInt();
+        int answer = scanner.nextInt();
         if(answer == 1){
             System.out.println(playerName);
         }else if(answer == 2){
@@ -166,34 +159,29 @@ public class GameFile{
     public void riverCrossing(){
         System.out.println("I come to the end of the forest and I can see path and a river\n(Follow the path)");
         System.out.println("1. Follow the path");
-        scan = new Scanner(System.in);
-        int answer = scan.nextInt();
+        int answer = scanner.nextInt();
         if(answer == 1){
             System.out.println("At the end of the path there is a river\nA boat is on the shore\nI push the boat into the river and jump on\nI sit in this small wooden boat and look at the beautiful mountains in the background\nI hear a rumble in the distance and can see rocks up ahead\nI can see rapids up ahead");
             
             System.out.println("Types (LEFT) or (RIGHT) to steer the boat and avoid the rocks");
-            scan = new Scanner(System.in);
-            String answer4 = scan.nextLine();
+            String answer4 = scanner.nextLine();
             if(answer4 == "LEFT"){
                 System.out.println("");
             }else if(answer4 == "RIGHT"){
                 System.out.println("");
                 
                 System.out.println("Types (LEFT) or (RIGHT)");
-                scan = new Scanner(System.in);
-                String answer1 = scan.nextLine();
+                String answer1 = scanner.nextLine();
                 if(answer1 == "LEFT"){
                     System.out.println("");
                     
                     System.out.println("Types (LEFT) or (RIGHT)");
-                    scan = new Scanner(System.in);
-                    String answer2 = scan.nextLine();
+                    String answer2 = scanner.nextLine();
                     if(answer2 == "LEFT"){
                         System.out.println("");
                         
                         System.out.println("Types (LEFT) or (RIGHT)");
-                        scan = new Scanner(System.in);
-                        String answer3 = scan.nextLine();
+                        String answer3 = scanner.nextLine();
                         if(answer3 == "LEFT"){
                             System.out.println("");
                         }else if(answer3 == "RIGHT"){
@@ -230,8 +218,7 @@ public class GameFile{
         System.out.println("Old Man: 'How can I help?'");
         System.out.println("1. Where am I?");
         System.out.println("2. Who are you?");
-        scan = new Scanner(System.in);
-        int answer = scan.nextInt();
+        int answer = scanner.nextInt();
         if(answer == 1){
             System.out.println("You are in Big Bloke Land");
         }else if(answer == 2){
@@ -243,8 +230,7 @@ public class GameFile{
 
         System.out.println(); //map insert here, arguments
         System.out.println("Where should we go?\n1. The Town\n2. The desert\n3. The Ocean");
-        scan = new Scanner(System.in);
-        int a = scan.nextInt();
+        int a = scanner.nextInt();
         if(a == 1){
             System.out.println("Good choice");
             shop();
@@ -279,8 +265,7 @@ public class GameFile{
     public void desert(){
         System.out.println("The desert is hot and dry. You might want to find a few water bottles to take some water with you, you don’t get dehydrated");
         System.out.println("After a long walk you come to a small village, you go into a small shop.\nHello, do u have any water bottles?\nYes, How many do you want?\n1. 1\n2. 2");
-        scan = new Scanner(System.in);
-        int s = scan.nextInt();
+        int s = scanner.nextInt();
         if(s == 1){
             System.out.println("Ok, that'll be $20\nOh no I don’t have any money\nWell why do u want them\nI am going on an adventure to the desert\nNo u don’t want to go there, you’ll never survive\nIf it is an adventure your looking you should go to the mountains");
         }else if(s == 2){
@@ -306,8 +291,7 @@ public class GameFile{
     public void mountain(){
         System.out.println("I see the same man standing a few doors down and go talk to him\nI tell him how I am on an adventure into the mountains and ask him is there is anything I may need before I go there\nHe looks at me with a terrifying look\nYou know what’s in those mountains, don’t you?");
         System.out.println("1. Yes\n2. No");
-        scan = new Scanner(System.in);
-        int s = scan.nextInt();
+        int s = scanner.nextInt();
         if(s == 1){
             System.out.println("Yes, but do have anything else to tell me about it?\nThere are dangerous beasts that live in those mountains \nI even hear there is a dragon that protects the highest peak\nNo man has ever come out of there alive");
         }else if(s == 2){
@@ -325,8 +309,7 @@ public class GameFile{
      * the task you can do
      */
     public void randomTask(){
-        Random rand = new Random();
-        int r = rand.nextInt(2);
+        int r = random.nextInt(2);
         if(r == 0){
             fishing();
         }else if(r == 1){
@@ -343,8 +326,7 @@ public class GameFile{
     public void mayor(){
         print("Hello, I am the mayor. I can give you tasks that you can complete for money\nWould you like to do a challenge?");
         print("1. Yes\n2. No");
-        scan = new Scanner(System.in);
-        int s = scan.nextInt();
+        int s = scanner.nextInt();
         if(s == 1){
             print("Awsesome!");
             randomTask();
@@ -366,8 +348,7 @@ public class GameFile{
         print("...");
         print("After reaching the river I can see there is a few deep pools filled with fish\nNow I need to catch them, how should I catch them?");
         print("1.Fishing Rod\n2. Net\n2. Trap");
-        scan = new Scanner(System.in);
-        int s1 = scan.nextInt();
+        int s1 = scanner.nextInt();
         if(s1 == 1){ //Fishing
             print("Tying a few reeds together and then tying it to a stick should make a good fishing rod\nI can use some of the deer meat as bait\nI dangle the bait into the water and wait for something to bite");
             print("...");
@@ -426,8 +407,7 @@ public class GameFile{
     public void jaguar(){
         print("Which weapone should we use?");
         print("1. Bow\n2. Axe");
-        scan = new Scanner(System.in);
-        s = scan.nextInt();
+        int s = scanner.nextInt();
         if(s == 1){
             //repeat until dead
             health();
@@ -455,20 +435,19 @@ public class GameFile{
         print("...");
         print("I arrive at the forest and start to cut down my first tree\n“russel” “russel”\nI turn around as I hear something in the bushes behind me\nA jaguar jumps out of the bush");
 		print("Do I want to fight the " + jaguar + " (15HP)");
-        scan = new Scanner(System.in);
-        int s = scan.nextInt();
+        int s = scanner.nextInt();
         print("1. Yes\n2. No");
         if(s == 1){
             jaguar();
             print("I finish off cutting down some and after a few hours of hard work I have dragged all the tree back to the village");
             bank += 500;
             bank();
-            beast();
+            warewolf();
         }else if(s == 2){
             print("Ok\nI finish off cutting down some and after a few hours of hard work I have dragged all the tree back to the village");
             bank += 500;
             bank();
-            beast();
+            warewolf();
         }else{
             print("Try Again");
         }
@@ -495,14 +474,12 @@ public class GameFile{
      */
     public void hunting(){
         System.out.println("1. Yes\n2. No");
-        scan = new Scanner(System.in);
-        int answer = scan.nextInt();
+        int answer = scanner.nextInt();
         if(answer == 1){
             System.out.println("Awesome, there is a forest not far from here you can go there \nThank you");
             System.out.println("I will need something to catch some deer, what should I use?");
             System.out.println("1. Spear\n2. Bow");
-            scan = new Scanner(System.in);
-             int a = scan.nextInt();
+             int a = scanner.nextInt();
              if(a == 1){
                 System.out.println("Alright, let the adventure begin\nGood choice, although it might be harder to the get close to the deer");
                 System.out.println("I head out to the forest");
@@ -529,17 +506,14 @@ public class GameFile{
                 //add in about additional money from the deer skins and then u can buy items
                 System.out.println("Would like to buy something with your money?");
                 System.out.println("1. Yes\n2. No");
-                scan = new Scanner(System.in);
-                int answer2 = scan.nextInt();
+                int answer2 = scanner.nextInt();
                  if(answer2 == 1){
                      System.out.println("Here is what we sell: \n1. Trap");
-                      scan = new Scanner(System.in);
-                      int b = scan.nextInt();
+                      int b = scanner.nextInt();
                       if(b == 1){
                           System.out.println("That will be $10");
                           System.out.println("1. Yes\n2. No");
-                          scan = new Scanner(System.in);
-                          int c = scan.nextInt();
+                          int c = scanner.nextInt();
                          if(c == 1){
                              System.out.println("Purchase Complete");
                              bank += -10;
@@ -562,13 +536,13 @@ public class GameFile{
                    //System.out.println("Alright, let the adventure begin");
                }else{
                    System.out.println("Please Try Again");
+               }
         }else if(answer == 2){
             System.out.println("Try Again");
         }else{
             System.out.println("Try Again");
         }
     }
-}
 
     /**
      * tailor() methos
@@ -578,8 +552,7 @@ public class GameFile{
     public void tailorJaguar(){
         print("Do you want to sell the jaguar skin or take it to the tailor?"); 
         print("1. Sell\n2. Tailor");
-        scan = new Scanner(System.in);
-        int s = scan.nextInt();
+        int s = scanner.nextInt();
         if(s == 1){
             print("Walk into the shop\nI have a jaguar skin to sell u\nAwesome here you go +$250");
             bank += 250;
@@ -587,8 +560,7 @@ public class GameFile{
         }else if(s == 2){
             print("Hello traveler\nBack already I see\nYes, I have a jaguar skin would you be able to make me some more clothes\nSure, what kind do u want made?");
             print("1. Hat\n2. Gloves");
-            scan = new Scanner(System.in);
-            int s1 = scan.nextInt();
+            int s1 = scanner.nextInt();
             if(s1 == 1){
                 print("Ok, thatll be $50\nHere you go");
                 bank -= 50;
@@ -627,8 +599,7 @@ public class GameFile{
      */
     public void warewolf(){
         print("I went and talked to the mayor\nWe really needed your help\nDo you want to help?\n1. Yes\n2. No");
-        scan = new Scanner(System.in);
-        int s = scan.nextInt();
+        int s = scanner.nextInt();
         if(s == 1){
             print("Awesome, there has been a beast that has been coming and terrorizes the village on every full moon\nWhat kind of beast?\nIt is a werewolf!\nHow am I going to fight it I don’t have any weapons?\nHere take thig dagger and shield \nThe next full moon is tonight, wait here until nightfall and the beast will appear");
             print("...");
@@ -639,8 +610,7 @@ public class GameFile{
             print("Night falls\nI sit quietly and wait\nI see a dark grey figure slowly walk into the town\nI run out into the road and I grab my bow\nI load an arrow and aim at the Werewolf(+15)");
             //put in the fighting mechanic
             print("Yay I have slain the werewolf\nDo you want to skin the werewolf?");
-            scan = new Scanner(System.in);
-            int s1 = scan.nextInt();
+            int s1 = scanner.nextInt();
             if(s1 == 1){
                 skin(warewolf);
                 print("Good job, You have slain the warewold");
@@ -671,16 +641,14 @@ public class GameFile{
     public void warewolfTailor(){
         print("You can sell the skin at the local shop\nWalk into the shop\nI have a werewold\nNice would you like to sell it or craft it into something");
         print("1. Sell\n2. Craft");
-        scan  = new Scanner(System.in);
-        int s = scan.nextInt();
+        int s = scanner.nextInt();
         if(s == 1){
             print("Thanks, here $500");
             bank += 500;
             bank();
         }else if(s == 2){
             print("What do you want to craft?\n1. Furr Jacket\n2. Furr Pants");
-            scan = new Scanner(System.in);
-            int s1 = scan.nextInt();
+            int s1 = scanner.nextInt();
             if(s1 == 1){
                 print("Ok, that'll be $50");
                 bank -= 50;
@@ -710,7 +678,7 @@ public class GameFile{
      * The player decideds that they will travel to the mountains
      */
     public void enterMountain(){
-        int r = random.nextInt();
+        int r = scanner.nextInt();
         System.out.println("Are you ready to go to the mountains?"); 
         System.out.println("1. Yes/n 2. No"); 
         if(r == 1){
