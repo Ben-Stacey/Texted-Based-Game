@@ -7,10 +7,9 @@ usecase (game\nsetup) as gameSetup
 usecase (wake\nup) as wakeUp
 usecase (river\ncrossing) as riverCrossing
 usecase (old\nman) as oldMan
+
+'Mayor storyline
 usecase (shop) as shop
-usecase (desert) as desert
-usecase (ocean) as ocean
-usecase (mountain) as mountain
 usecase (hunting) as hunting
 usecase (fishing) as fishing
 usecase (mayor) as mayor
@@ -19,6 +18,32 @@ usecase (jaguar) as jaguar
 usecase (logging) as logging
 usecase (tailor) as tailor
 usecase (beast) as beast
+usecase (wareTailer) as wareTailor
+usecase (wareSmith) as wareSmith
+usecase (cave) as cave
+usecase (lost\ngear) as lostGear
+usecase (troll) as troll
+
+'Desert storyline
+usecase (desert) as desert
+
+
+'Ocean storyline
+usecase (ocean) as ocean
+usecase (boat\nman) as boatMan
+usecase (scuba\ndiving) as scubaDiving
+usecase (submarine) as submarine
+
+usecase (atlantis) as atlantis
+
+
+'Mountain storyline
+usecase (mountain) as mountain
+usecase (Futureistic\nCity) as city
+
+'Dragon ending 
+usecase (dragon) as dragon
+
 
 player -- playerSetup
 
@@ -37,6 +62,14 @@ logging ..> jaguar
 hunting ..> beast
 fishing ..> beast
 jaguar ..> beast
+beast ..> wareSmith
+beast ..> wareTailor
+wareSmith ..> cave
+wareTailor ..> cave
+cave ..> lostGear
+lostGear ..> troll
+troll ..> dragon
+
 
 
 @enduml

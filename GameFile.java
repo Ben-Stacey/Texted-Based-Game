@@ -20,11 +20,26 @@ public class GameFile{
     private String fishingRod = "Fishing Rod";
     private String axe = "Axe";
 
-    private String jaguar = "Jaguar";
-    private String warewolf = "Warewolf";
+    private String basilisk = "Basilisk";
+    private int basiliskHealth = 10;
 
+    private String centor = "Centor";
+    private int centorHealth = 10;
+
+    private String jaguar = "Jaguar";
+    private int jaguarHealth = 10;
+
+    private String warewolf = "Warewolf";
+    private int warewoldHealth = 10;
+
+    private String manticore = "Manticore";
+    private int manticoreHealth = 10;
+
+    private String basiliskSkin = "Basilish Skin";
+    private String centorSkin = "Centor Skin";
     private String jaguarSkin = "Jaguar Skin";
     private String warewolfSkin = "Warewolf Skin";
+    private String manticoreSkin = "Manticore Skin";
 
     private String leatherTunic = "Leather Tunic";
     private String leatherLeggings = "Leather Leggings";
@@ -56,7 +71,10 @@ public class GameFile{
     private String healthPotion = "Health Potion";
     private String strengthPotion = "Strength Potion";
 
-    private Scanner scan;
+    private Scanner scanner;
+    private Random random;
+
+    private boolean manticoreCheck = false;
 
     private int hp = 100;
     private int bank = 0;
@@ -71,7 +89,7 @@ public class GameFile{
      */
     public static void main(String[]args){
         GameFile game = new GameFile();
-        game.playerSetUp();
+        game.playerSetup();
         gameSetup();
         wakingUp();
         riverCrossing();
@@ -84,7 +102,7 @@ public class GameFile{
      * Allows you to choose your player name
      */
 
-    public void playSetup(){
+    public void playerSetup(){
         System.out.println("Please enter a username:");
         scan = new Scanner(System.in);
         playerName = scan.nextLine();
@@ -379,15 +397,21 @@ public class GameFile{
      * skin() method
      * skinng an animal method
      * This needs to be changed from jaguar skin to work with any animal 
+     * @param animal is the animal that we are skinning
      */
-    public void skin(){
-        print("Do you want to skin the " + jaguar + "?");
-        scan = new Scanner(System.in);
-        int s = scan.nextInt();
+    public void skin(String animal){
+        print("Do you want to skin the " + animal + "?");
+        int s = scanner.nextInt();
         print("1.Yes\n2. No");
         if(s == 1){
-            print("Nice, you acquired a " + jaguar + " skin\nSell back at the town for money");
-            inventoryString += jaguarSkin;
+            print("Nice, you acquired a " + animal + " skin\nSell back at the town for money");
+            if(animal == manticore){
+                inventoryString += manticoreSkin;
+            }else if(animal == jaguar){
+                inventoryString += jaguarSkin;
+            }else if(animal == warewolf){
+                inventoryString += warewolfSkin;
+            }
         }else if(s == 2){
             print("Ok, maybe next time"); 
         }else{
@@ -408,12 +432,12 @@ public class GameFile{
             //repeat until dead
             health();
             print("The " + jaguar + " is dead!");
-            skin();
+            skin(jaguar);
         }else if(s == 2){
             //repeat until dead
             health();
             print("The " + jaguar + " is dead!");
-            skin();
+            skin(jaguar);
         }else{
             print("Try Again");
         }
@@ -598,10 +622,10 @@ public class GameFile{
     }
 
     /**
-     * beast()
+     * warewolf()
      * In this method the fighting the warewolf
      */
-    public void beast(){
+    public void warewolf(){
         print("I went and talked to the mayor\nWe really needed your help\nDo you want to help?\n1. Yes\n2. No");
         scan = new Scanner(System.in);
         int s = scan.nextInt();
@@ -618,7 +642,7 @@ public class GameFile{
             scan = new Scanner(System.in);
             int s1 = scan.nextInt();
             if(s1 == 1){
-                skin();
+                skin(warewolf);
                 print("Good job, You have slain the warewold");
                 warewolfTailor();
                 print("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
@@ -644,7 +668,7 @@ public class GameFile{
      * method that allows you to get the warewold skin made into things
      * you can also sell it here
      */
-    public void warewolfTailer(){
+    public void warewolfTailor(){
         print("You can sell the skin at the local shop\nWalk into the shop\nI have a werewold\nNice would you like to sell it or craft it into something");
         print("1. Sell\n2. Craft");
         scan  = new Scanner(System.in);
@@ -682,11 +706,231 @@ public class GameFile{
     }
 
     /**
-     * blackSmithWareWolf() method
-     * 
+     * enterMountain() method
+     * The player decideds that they will travel to the mountains
      */
-    public void blackSmithWareWolf(){
-        
+    public void enterMountain(){
+        int r = random.nextInt();
+        System.out.println("Are you ready to go to the mountains?"); 
+        System.out.println("1. Yes/n 2. No"); 
+        if(r == 1){
+            System.out.println("I set off on the long walk to the mountains"); 
+            System.out.println("..."); 
+            System.out.println("..."); 
+            System.out.println("..."); 
+            System.out.println("I pass through lots of villages\nThese places are scary, and everyone looks at me funny\nAs I get closer to the mountains the villages get worse and worse\nAs I get to the bottom of the mountains the suns is blocked by their almighty height\nI can see a gap in-between the mountains \nIt must be pass up into the mountains"); 
+        }else if(r ==2){
+            System.out.println("Try Again"); 
+        }else{
+            System.out.println("Try Again"); 
+        }          
+    }
+
+    /**
+     * cave() method
+     * The player comes to a cave:
+     * 1st they will need to get a maths problem correct to enter
+     * 2nd they will need to nagivate the correct way through the cave
+     * If they get it wrong they will knock there head and lose their gear
+     * If they get it right they will make it out
+     */
+    public void cave(){
+        System.out.println("Try Again"); 
+        //use math here to find the right combination to enter the cave
+
+        //then navigating through the cave
+        System.out.println("The path leads to the opening of a cave\nIt is dark inside but there is nowhere else to go\nFind a stick next to the opening of the cave and I tie some animal skin around the top. \nI set it on fire to use as a torch\nAs I enter the cave I can see there is lots of different pathways");
+        System.out.println("Which way should I go?");
+        System.out.println("1. Left\n2. Right");
+        int r = scanner.nextInt();
+        if(r == 1){
+            lostGear(); 
+        }else if(r == 2){   
+            System.out.println("1. Left\n2. Right");
+            int a = scanner.nextInt();
+            if(a == 1){
+                lostGear();
+            }else if(a == 2){
+                System.out.println("1. Left\n2. Right");
+                int b = scanner.nextInt();
+                if(b == 1){
+                    System.out.println("1. Left\n2. Right");
+                    int c = scanner.nextInt();
+                    if(c == 1){
+                        manticore();
+                        manticoreCheck = true;
+                    }else if(c == 2){
+                        lostGear();
+                    }else{
+                        System.out.println("Try Again");
+                    }
+                }else if(b == 2){
+                    lostGear(); 
+                }else{
+                    System.out.println("Try Again");
+                }
+            }else{
+                System.out.println("Try Again");
+            }
+        }else{
+            System.out.println("Try Again"); 
+        }
+    }
+
+    public void manticore(){
+        if(manticoreCheck == false){
+            System.out.println("I come to the end of the path and I can hear a deep rawr\nOut of the shadows a great beast appears\nIt is a manticore");
+            System.out.println("Which weapon do you want to use?");
+            System.out.println("1. Sword\n2. Bow");
+            int r = scanner.nextInt();
+            if(r == 1){
+                System.out.println("Swing your sword to kill the " + manticore);
+                System.out.println("Type = 'Swing' Until it's dead");
+                int rand = random.nextInt(4);
+                String swing = scanner.nextLine();
+                while(manticoreHealth > 0 && swing == "Swing"){
+                    manticoreHealth -= rand;
+                    System.out.println(manticore + " health dropped by: " + rand);
+                }
+                System.out.println("The " + manticore + " has died\nDo you want to skin the " + manticore);
+                System.out.println("1. Yes\n2. No");
+                int a = scanner.nextInt();
+                if(a == 1){
+                    skin(manticore);
+                }else if(a == 2){
+                    System.out.println("Ok");
+                }else{
+                    System.out.println("Try Again");
+                }
+            }else if(r ==2){
+                System.out.println("Use your bow to kill the " + manticore);
+                System.out.println("Type = 'Draw' Until it's dead");
+                int rand = random.nextInt(4);
+                String draw = scanner.nextLine();
+                while(manticoreHealth > 0 && draw == "Draw"){
+                manticoreHealth -= rand;
+                System.out.println(manticore + " health dropped by: " + rand);
+                }
+
+                System.out.println("The " + manticore + " has died\nDo you want to skin the " + manticore);
+                System.out.println("1. Yes\n2. No");
+                int a = scanner.nextInt();
+                if(a == 1){
+                    skin(manticore);
+                }else if(a == 2){
+                    System.out.println("Ok");
+                }else{
+                    System.out.println("Try Again");
+                }
+            }else{
+                System.out.println("Try Again");
+            }
+        }else if(manticoreCheck == true){
+            System.out.println("I come to the end of the path and I can hear a deep rawr\nOut of the shadows a great beast appears\nIt is a manticore");
+            System.out.println("Which weapon do you want to use?");
+            System.out.println("1. Sword\n2. Bow");
+            int r = scanner.nextInt();
+            if(r == 1){
+                System.out.println("Swing your sword to kill the " + manticore);
+                System.out.println("Type = 'Swing' Until it's dead");
+                int rand = random.nextInt(4);
+                String swing = scanner.nextLine();
+                while(manticoreHealth > 0 && swing == "Swing"){
+                    manticoreHealth -= rand;
+                    System.out.println(manticore + " health dropped by: " + rand);
+                }
+                if(manticoreHealth > 2){
+                    lostGear();
+                }
+                
+            }else if(r ==2){
+                System.out.println("Use your bow to kill the " + manticore);
+                System.out.println("Type = 'Draw' Until it's dead");
+                int rand = random.nextInt(4);
+                String draw = scanner.nextLine();
+                while(manticoreHealth > 0 && draw == "Draw"){
+                manticoreHealth -= rand;
+                System.out.println(manticore + " health dropped by: " + rand);
+                }
+                if(manticoreHealth > 2){
+                    lostGear();
+                }
+            }else{
+                System.out.println("Try Again");
+            }
+        }
+    }
+
+    public void lostGear(){
+        System.out.println("Get knocked out\nI keep walking through the cave, and I can see a light \nI must be at the end\nI walk towards and as I am about to exit the cave");
+        System.out.println("BANG!!!!");
+        System.out.println("...");
+        System.out.println("...");
+        System.out.println("...");
+        System.out.println("My eyes open slowly and all I see is sky\nI feel dazed and confused\nAll my belongings are missing");
+        System.out.println("Meet the centor and do his quest, get a shield\nAs I walk along the mountain path I keep getting higher and higher\nThe sky is a dark grey as the clouds gather\nUp ahead there is a clearing amongst the clouds as a beam of sun light shines down onto peak\nOn top I can see something sitting up there\nI travel up to this peak and I find a centor\nHello, he says to me\nHello, who are you and what are you doing up here");
+        System.out.println("My name is Liam I am the Centor that looks after these mountains \nWhat is your name?\nI don’t know but I am on an adventure in these mountains\nEvery time there is an indent in the script it is considered to be an peice of text or context of story that happens within the previously chosen option from the player");
+        System.out.println("You need to be careful it is dangerous out here\nWhere is your shield?\nShield? I don’t have a shield\nI can get you a shield but I need you to do a task for me, do you accept?");
+        System.out.println("1. Yes\n2. No");
+        int s = scanner.nextInt();
+        if(s == 1){
+            System.out.println("Awesome, there is a basilisk not far from here that has been attacking people who come into the mountains\nIf you can take him down, I would really appreciate that, can you do it?");
+            int sc = scanner.nextInt();
+            if(sc == 1){
+                System.out.println("Awesome, he is north of here. \nThey sit in giant nests, be careful they are an unpredictable beast");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("After walking for a while, I came across a steep mountain side\nI look to the top where I can see a nest on the edge of a cliff\nThey only way to get to it is to climb up the cliff\nWhich arm should we move to climb the cliff?");
+                System.out.println("1. Left\n2. Right");
+                int scan = scanner.nextInt();//right left right
+                if(scan == 1){ 
+                    System.out.println("Which are should we move to climb?");
+                    int scan1 = scanner.nextInt();//right left right
+                    if(scan1 == 1){ 
+
+                    }else if(scan1 == 2){
+                        System.out.println("Which are should we move to climb next?");
+                        int scan2 = scanner.nextInt();//right left right
+                        if(scan2 == 1){ 
+                            System.out.println("Which are should we move to climb next?");
+                            int scan3 = scanner.nextInt();//right left right
+                            if(scan3 == 1){ 
+                                System.out.println("Wow, that was high\nI can see the basilisk sitting in its nest\nI slowly sneak up to the edge of the nest as I pull out my bow\nShould I shoot close or far?");
+                                int rand = random.nextInt(4);
+                                String draw = scanner.nextLine();
+                                while(basiliskHealth > 0 && draw == "Swing"){
+                                    basiliskHealth -= rand;
+                                    System.out.println(basilisk + " health dropped by: " + rand);
+                                }
+                            }else if(scan3 == 2){
+
+                            }else{
+                                System.out.println("Try Again");
+                            }
+                        }else if(scan2 == 2){
+
+                        }else{
+                            System.out.println("Try Again");
+                        }
+                    }else{
+                        System.out.println("Try Again");
+                    }
+                }else if(scan == 2){
+
+                }else{
+                    System.out.println("Try Again");
+                }
+            }else if(sc == 2){
+
+            }else{
+                System.out.println("Try Again");
+            }
+        }else if(s == 2){
+
+        }else{
+            System.out.println("Try Again");
+        }
     }
 
     /**
@@ -698,4 +942,3 @@ public class GameFile{
         System.out.println(p);
     }                                                                                                                   
   }
-}
