@@ -5,7 +5,7 @@ public class HelloWorld {
     }
 
     public void hello(){
-        print("Hello World");
+        print("Hello World!");
     }
 
     public void print(String p){
