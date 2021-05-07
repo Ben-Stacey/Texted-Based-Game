@@ -12,13 +12,5 @@
 1. in the river crossing method need to have reset loop that lets you start again if you mess up
 2. for when you select the rong one needs loops to reset your decision
 3. look at changing from typing words to you type a number from a given list of options to make it cleaner and easier to use
-
-
-
-binance
-
-binance api
-
-json
-
-node js 
+4. Go through the file and change the all the == "string" to .equals("string")
+5. Look at the method that have imbedded if statements and look at making them seperate methods that can be called over and over

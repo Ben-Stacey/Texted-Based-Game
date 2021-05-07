@@ -80,6 +80,7 @@ public class GameFile{
     private int bank = 0;
     private int inventoryInt = 0;
     private int inventoryLimit = 10;
+    private int climb = 0;
 
     /** 
      * Starts off the running of the program. 
@@ -843,61 +844,142 @@ public class GameFile{
         int s = scanner.nextInt();
         if(s == 1){
             System.out.println("Awesome, there is a basilisk not far from here that has been attacking people who come into the mountains\nIf you can take him down, I would really appreciate that, can you do it?");
+            System.out.println("1. Yes");
+            System.out.println("1. No");
             int sc = scanner.nextInt();
             if(sc == 1){
-                System.out.println("Awesome, he is north of here. \nThey sit in giant nests, be careful they are an unpredictable beast");
-                System.out.println("...");
-                System.out.println("...");
-                System.out.println("...");
-                System.out.println("After walking for a while, I came across a steep mountain side\nI look to the top where I can see a nest on the edge of a cliff\nThey only way to get to it is to climb up the cliff\nWhich arm should we move to climb the cliff?");
-                System.out.println("1. Left\n2. Right");
-                int scan = scanner.nextInt();//right left right
-                if(scan == 1){ 
-                    System.out.println("Which are should we move to climb?");
-                    int scan1 = scanner.nextInt();//right left right
-                    if(scan1 == 1){ 
-
-                    }else if(scan1 == 2){
-                        System.out.println("Which are should we move to climb next?");
-                        int scan2 = scanner.nextInt();//right left right
-                        if(scan2 == 1){ 
-                            System.out.println("Which are should we move to climb next?");
-                            int scan3 = scanner.nextInt();//right left right
-                            if(scan3 == 1){ 
-                                System.out.println("Wow, that was high\nI can see the basilisk sitting in its nest\nI slowly sneak up to the edge of the nest as I pull out my bow\nShould I shoot close or far?");
-                                int rand = random.nextInt(4);
-                                String draw = scanner.nextLine();
-                                while(basiliskHealth > 0 && draw == "Swing"){
-                                    basiliskHealth -= rand;
-                                    System.out.println(basilisk + " health dropped by: " + rand);
-                                }
-                            }else if(scan3 == 2){
-
-                            }else{
-                                System.out.println("Try Again");
-                            }
-                        }else if(scan2 == 2){
-
+                climbing();
+                int sc1 = scanner.nextInt();
+                if(sc1 == 1){
+                    climbing();
+                    int sc2 = scanner.nextInt();
+                    if(sc2 == 1){
+                        System.out.println("Try Again");
+                        climbing();
+                    }else if(sc2 == 2){
+                        climbing();
+                        int sc3 = scanner.nextInt();
+                        if(sc3 == 1){
+                            System.out.println("Try Again");
+                            climbing();
+                        }else if(sc3 == 2){
+                            System.out.println("Try Again");
+                            climbing();
                         }else{
                             System.out.println("Try Again");
+                            climbing();
                         }
                     }else{
                         System.out.println("Try Again");
+                        climbing();
                     }
-                }else if(scan == 2){
-
+                }else if(sc1 == 2){
+                    System.out.println("Try Again");
+                    climbing();
                 }else{
                     System.out.println("Try Again");
+                    climbing();
                 }
             }else if(sc == 2){
-
+                System.out.println("Try Again");
+                lostGear();
             }else{
                 System.out.println("Try Again");
+                lostGear();
             }
         }else if(s == 2){
-
+            System.out.println("Try Again");
+            lostGear();
         }else{
             System.out.println("Try Again");
+            lostGear();
+        }
+    }
+
+    public void climbing(){
+        int rand = random.nextInt(1);
+        if(climb == 3){
+            System.out.println("")
+            baslickFight();
+        }else{
+            System.out.println("Which are should we move to climb?");
+            System.out.println("1. Left");
+            System.out.println("2. Right");
+            int scan = scanner.nextInt();
+            if(scan == 1){
+                if(rand == 0){
+                    System.out.println("Good job");
+                    climbing();
+                    climb++;
+                }else if(rand == 1){
+                    System.out.println("You fell");
+                    System.out.println("Try Again");
+                    climbing();
+                }else{
+                    System.out.println("Try Again");
+                    climbing();
+                }
+            }else if(scan == 2){
+                if(rand == 0){
+                    System.out.println("Good job");
+                    climbing();
+                    climb++;
+                }else if(rand == 1){
+                    System.out.println("You fell");
+                    System.out.println("Try Again");
+                    climbing();
+                }else{
+                    System.out.println("Try Again");
+                    climbing();
+                }
+            }else{
+                System.out.println("Try Again");
+                climbing();
+            }
+        }
+    }
+
+    public void baslickFight(){
+        if(basiliskHealth > 1){
+            System.out.println("You killed the " + basilisk);
+            int s = scanner.nextInt();
+            System.out.println("Do you want to skin the " + basilisk);
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+            if(s == 1){
+                skin(basilisk);
+            }else if(s == 2){
+                System.out.println("Ok");
+            }else{
+                System.out.println("Try Again");
+                baslickFight();
+            }
+        }else{
+            int r = random.nextInt(10);
+            String scan = scanner.nextLine();
+            System.out.println("Should I shoot close or far?");
+            System.out.println("1. Close");
+            System.out.println("2. Far");
+            if(scan.equals("Close")){
+                if(r < 5){
+                    System.out.println("Hit, -" + r + " damage");
+                    basiliskHealth -= r;
+                }else if(r > 5){
+                    System.out.println("Miss, Try Again");
+                    baslickFight();
+                }
+            }else if(scan.equals("Close")){
+                if(r < 5){
+                    System.out.println("Hit, -" + r + " damage");
+                    basiliskHealth -= r;
+                }else if(r > 5){
+                    System.out.println("Miss, Try Again");
+                    baslickFight();
+                }
+            }else{
+                System.out.println("Try Again");
+                baslickFight();
+            }
         }
     }
 
