@@ -1031,4 +1031,10 @@ public class GameFile{
     public void troll(){
         System.out.println("");
     }
+
+    public void gap(){
+        System.out.println();
+        System.out.println("--------------------------------------------------------------------------------------------");
+        System.out.println();
+    }
 }
