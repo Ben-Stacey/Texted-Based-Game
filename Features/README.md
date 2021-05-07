@@ -6,8 +6,6 @@
 
 * once all 4 are complete them you do the final boss
 
-* all the 'scan' needs to be changed to 'scanner'
-
 ## ToDo;
 1. in the river crossing method need to have reset loop that lets you start again if you mess up
 2. for when you select the rong one needs loops to reset your decision
