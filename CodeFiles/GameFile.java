@@ -102,6 +102,7 @@ public class GameFile{
      */
 
     public void playerSetup(){
+        
         System.out.println("Please enter a username:");
         playerName = scanner.nextLine();
         System.out.println("Welcome " + playerName);
@@ -115,6 +116,7 @@ public class GameFile{
         System.out.println("Inventory " + inventoryString);
         System.out.println("");    
         gameSetup();
+       
     }
 
     /** 
@@ -123,6 +125,7 @@ public class GameFile{
      */ 
 
     public void gameSetup(){
+        
         System.out.println("To play this game you will be questions and then given possible responses\nType the answer you want to take exactly as it is stated in the question otherwise the program will ask you to try again\nThis is still in development and I already apologies if this crashes during your game\nPlease let me know if this crashes, where it crashes and why.");
         
         System.out.println("Welcome, in this game you will go on an adventure\nOn your adventure you will meet things that will help you and things that will try to stop you\nThis adventure is not for the faint of heart\nDo you have what it takes?? (Yes or No)");
@@ -136,6 +139,7 @@ public class GameFile{
             System.out.println("Please Try Again");
         }
         wakingUp();
+        
     }
 
     /**
@@ -143,6 +147,7 @@ public class GameFile{
      * Start of the game, your character wakes up
      */
     public void wakingUp(){
+        
         System.out.println("My eyes open slowly as the light beams into my eyes\nI am surrounded by trees as the birds chirp above me\n(Who am I? or What do I do?)");
         System.out.println("1. Who am I?\n2. What do I do?");
         int answer = scanner.nextInt();
@@ -154,6 +159,7 @@ public class GameFile{
             System.out.println("Please Try Again");
         }
         riverCrossing();
+        System.out.println("--------------------------------------");
     }
 
     /**
@@ -163,6 +169,7 @@ public class GameFile{
      * Failure will result in the player having to do that again
      */
     public void riverCrossing(){
+        System.out.println("--------------------------------------");
         System.out.println("I come to the end of the forest and I can see path and a river\n(Follow the path)");
         System.out.println("1. Follow the path");
         int answer = scanner.nextInt();
@@ -211,6 +218,7 @@ public class GameFile{
         }else{
             System.out.println("Please Try Again");
         }
+        System.out.println("--------------------------------------");
     }
 
     /**
