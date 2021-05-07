@@ -1032,6 +1032,7 @@ public class GameFile{
         System.out.println("");
     }
 
+    /**Inserts a gap.*/
     public void gap(){
         System.out.println();
         System.out.println("--------------------------------------------------------------------------------------------");
