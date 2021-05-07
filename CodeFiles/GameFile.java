@@ -95,32 +95,6 @@ public class GameFile {
         game.playerSetup();
     }
 
-<<<<<<< HEAD
-    public void space(){
-        System.out.println("");
-    }
-
-    /** 
-     * playSetup() method
-     * This method has all the information about setting up your character
-     * Allows you to choose your player name
-     */
-
-    public void playerSetup(){
-        gap();
-        System.out.println("Please enter a username:");
-        playerName = scanner.nextLine();
-        space();
-        System.out.println("Welcome " + playerName);
-        space();
-        System.out.println("HP: " + hp);
-        space();
-        System.out.println("Armour " + myArmour);
-        space();
-        System.out.println("Weapon " + myWeapon);
-        space();
-        System.out.println("Inventory " + inventoryString);    
-=======
     /**
      * playSetup() method This method has all the information about setting up your
      * character Allows you to choose your player name
@@ -139,7 +113,6 @@ public class GameFile {
         p("");
         p("Inventory " + inventoryString);
         p("");
->>>>>>> be43459da8500961a24e5280d6d24a6c8a810ff2
         gameSetup();
         gap();
     }
@@ -152,24 +125,6 @@ public class GameFile {
     public void gameSetup() {
         p("To play this game you will be questions and then given possible responses\nType the answer you want to take exactly as it is stated in the question otherwise the program will ask you to try again\nThis is still in development and I already apologies if this crashes during your game\nPlease let me know if this crashes, where it crashes and why.");
 
-<<<<<<< HEAD
-    public void gameSetup(){
-        gap();
-        System.out.println("To play this game you will be questions and then given possible responses\nType the answer you want to take exactly as it is stated in the question otherwise the program will ask you to try again\nThis is still in development and I already apologies if this crashes during your game\nPlease let me know if this crashes, where it crashes and why.");
-        
-        System.out.println("Welcome, in this game you will go on an adventure\nOn your adventure you will meet things that will help you and things that will try to stop you\nThis adventure is not for the faint of heart\nDo you have what it takes??");
-        space();
-        System.out.println("1. Yes\n2. No");
-        int answer = scanner.nextInt();
-        if(answer == 1){
-            wakingUp();
-        }else if(answer == 2){
-            System.out.println("Please Try Again");
-            gameSetup();
-        }else{
-            System.out.println("Please Try Again");
-            gameSetup();
-=======
         p("Welcome, in this game you will go on an adventure\nOn your adventure you will meet things that will help you and things that will try to stop you\nThis adventure is not for the faint of heart\nDo you have what it takes?? (Yes or No)");
         p("1. Yes\n2. No");
         int answer = scanner.nextInt();
@@ -179,7 +134,6 @@ public class GameFile {
             p("Please Try Again");
         } else {
             p("Please Try Again");
->>>>>>> be43459da8500961a24e5280d6d24a6c8a810ff2
         }
         gap();
     }
@@ -187,37 +141,6 @@ public class GameFile {
     /**
      * wakingUp() method Start of the game, your character wakes up
      */
-<<<<<<< HEAD
-    public void wakingUp(){
-        gap();
-        System.out.println("Alright, let the adventure begin");
-        System.out.println("My eyes open slowly as the light beams into my eyes\nI am surrounded by trees as the birds chirp above me");
-        space();
-        System.out.println("1. Who am I?\n2. What do I do?");
-        int answer = scanner.nextInt();
-        if(answer == 1){
-            System.out.println(playerName);
-            wakingUp();
-        }else if(answer == 2){
-            riverCrossing();
-        }else{
-            System.out.println("Please Try Again");
-            wakingUp();
-        }
-        gap();
-    }
-
-    public void boatSteering(){
-        System.out.println("1. Left\n2. Right");
-        int answer = scanner.nextInt();
-        if(answer == 1){
-            
-        }else if(answer == 2){
-
-        }else{
-            System.out.println("Try Again");
-            boatSteering();
-=======
     public void wakingUp() {
         p("My eyes open slowly as the light beams into my eyes\nI am surrounded by trees as the birds chirp above me\n(Who am I? or What do I do?)");
         p("1. Who am I?\n2. What do I do?");
@@ -228,7 +151,6 @@ public class GameFile {
             p("Maybe I should go for a walk and try and find someone");
         } else {
             p("Please Try Again");
->>>>>>> be43459da8500961a24e5280d6d24a6c8a810ff2
         }
     }
 
@@ -237,19 +159,9 @@ public class GameFile {
      * player must type left and right to navigate there way down the river Failure
      * will result in the player having to do that again
      */
-<<<<<<< HEAD
-    public void riverCrossing(){
-        gap();
-        System.out.println("Maybe I should go for a walk and try and find someone");
-        space();
-        System.out.println("I come to the end of the forest and I can see a path and a river\n(Follow the path)");
-        space();
-        System.out.println("1. Follow the path");
-=======
     public void riverCrossing() {
         p("I come to the end of the forest and I can see path and a river\n(Follow the path)");
         p("1. Follow the path");
->>>>>>> be43459da8500961a24e5280d6d24a6c8a810ff2
         int answer = scanner.nextInt();
         if (answer == 1) {
             p("At the end of the path there is a river\nA boat is on the shore\nI push the boat into the river and jump on\nI sit in this small wooden boat and look at the beautiful mountains in the background\nI hear a rumble in the distance and can see rocks up ahead\nI can see rapids up ahead");
@@ -293,32 +205,13 @@ public class GameFile {
             } else {
                 p("Please Try Again");
             }
-<<<<<<< HEAD
-        }else{
-            System.out.println("Please Try Again");
-            riverCrossing();
-=======
         } else {
             p("Please Try Again");
->>>>>>> be43459da8500961a24e5280d6d24a6c8a810ff2
         }
         gap();
     }
 
     /**
-<<<<<<< HEAD
-     * oldMan() method
-     * This method is where the main part of the story starts 
-     * You meet an old man and he gives a map
-    * The player then decides how they want to play the story
-    */
-    public void oldMan(){
-        gap();
-        System.out.println("You see a house in the distance, and you walk up to it\nKnock of the door\nAn old man opens the door");
-        System.out.println("Old Man: 'How can I help?'");
-        System.out.println("1. Where am I?");
-        System.out.println("2. Who are you?");
-=======
      * oldMan() method This method is where the main part of the story starts You
      * meet an old man and he gives a map The player then decides how they want to
      * play the story
@@ -328,7 +221,6 @@ public class GameFile {
         p("Old Man: 'How can I help?'");
         p("1. Where am I?");
         p("2. Who are you?");
->>>>>>> be43459da8500961a24e5280d6d24a6c8a810ff2
         int answer = scanner.nextInt();
         if (answer == 1) {
             p("You are in Big Bloke Land");
@@ -1135,12 +1027,6 @@ public class GameFile {
         p("");
     }
 
-<<<<<<< HEAD
-    public void gap(){
-        System.out.println();
-        System.out.println("----------------------------------------------------");
-        System.out.println();
-=======
     /**
      * Prints whatever it is passed.
      * 
@@ -1148,6 +1034,5 @@ public class GameFile {
      */
     public void p(String s) {
         System.out.println(s);
->>>>>>> be43459da8500961a24e5280d6d24a6c8a810ff2
     }
 }
