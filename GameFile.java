@@ -67,15 +67,16 @@ public class GameFile{
     private String meercat = "Meercat";
 
     private String inventoryString = "Empty";
-    priate String inventoryTemp = "";
+    private String inventoryTemp = "";
 
     private String healthPotion = "Health Potion";
     private String strengthPotion = "Strength Potion";
 
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
     private Random random;
 
     private boolean manticoreCheck = false;
+    private boolean combination = false;
 
     private int hp = 100;
     private int bank = 0;
@@ -326,16 +327,16 @@ public class GameFile{
      * The mayor gives out job which can get you money
      */
     public void mayor(){
-        print("Hello, I am the mayor. I can give you tasks that you can complete for money\nWould you like to do a challenge?");
-        print("1. Yes\n2. No");
+        System.out.println("Hello, I am the mayor. I can give you tasks that you can complete for money\nWould you like to do a challenge?");
+        System.out.println("1. Yes\n2. No");
         int s = scanner.nextInt();
         if(s == 1){
-            print("Awsesome!");
+            System.out.println("Awsesome!");
             randomTask();
         }else if(s == 2){
-            print("Try Again");
+            System.out.println("Try Again");
         }else{
-            print("Try Again");
+            System.out.println("Try Again");
         }
     }
 
@@ -344,35 +345,35 @@ public class GameFile{
      * Fishing is a method that allows you to get money
      */
     public void fishing(){
-        print("Awesome, we need some more fish for the village\nhere is a river not far from here full of fish");
-        print("...");
-        print("...");
-        print("...");
-        print("After reaching the river I can see there is a few deep pools filled with fish\nNow I need to catch them, how should I catch them?");
-        print("1.Fishing Rod\n2. Net\n2. Trap");
+        System.out.println("Awesome, we need some more fish for the village\nhere is a river not far from here full of fish");
+        System.out.println("...");
+        System.out.println("...");
+        System.out.println("...");
+        System.out.println("After reaching the river I can see there is a few deep pools filled with fish\nNow I need to catch them, how should I catch them?");
+        System.out.println("1.Fishing Rod\n2. Net\n2. Trap");
         int s1 = scanner.nextInt();
         if(s1 == 1){ //Fishing
-            print("Tying a few reeds together and then tying it to a stick should make a good fishing rod\nI can use some of the deer meat as bait\nI dangle the bait into the water and wait for something to bite");
-            print("...");
-            print("...");
-            print("...");
-            print("FISH ON!!!\nI yell as the rod is nearly yanked out of my hand\nI quickly pull on the rod and pull the fish in\nI do this for a few hours to get enough fish for the mayor");
-            print("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
+            System.out.println("Tying a few reeds together and then tying it to a stick should make a good fishing rod\nI can use some of the deer meat as bait\nI dangle the bait into the water and wait for something to bite");
+            System.out.println("...");
+            System.out.println("...");
+            System.out.println("...");
+            System.out.println("FISH ON!!!\nI yell as the rod is nearly yanked out of my hand\nI quickly pull on the rod and pull the fish in\nI do this for a few hours to get enough fish for the mayor");
+            System.out.println("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
             bank += 500;
         }else if(s1 == 2){ //Net
-            print("I find some reeds by the side of the river\nI start to weave them together to make a net\nI throw the net into the river and pull it back in to see what I get");
-            print("...");
-            print("...");
-            print("...");
-            print("Nothing\nI keep trying again it does work great, but I eventually get enough");// This text needs to be edited as it boring the same should be added into the trap below
-            print("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500"); //value should be different depending on what is caught
+            System.out.println("I find some reeds by the side of the river\nI start to weave them together to make a net\nI throw the net into the river and pull it back in to see what I get");
+            System.out.println("...");
+            System.out.println("...");
+            System.out.println("...");
+            System.out.println("Nothing\nI keep trying again it does work great, but I eventually get enough");// This text needs to be edited as it boring the same should be added into the trap below
+            System.out.println("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500"); //value should be different depending on what is caught
             bank += 500;
         }else if(s1 == 3){ // Trap
-            print("I pile rocks up below the deep pool in the river to make a small dam\nI grab some reeds from the side of the river and weave it into a little basket and place it In the middle of the dam\nI then walk to the top of the deep pool and thrash about to make lots of noise and scare the fish into the basket\nI check the basket and it is full of fish");
-            print("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
+            System.out.println("I pile rocks up below the deep pool in the river to make a small dam\nI grab some reeds from the side of the river and weave it into a little basket and place it In the middle of the dam\nI then walk to the top of the deep pool and thrash about to make lots of noise and scare the fish into the basket\nI check the basket and it is full of fish");
+            System.out.println("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
             bank += 500;
         }else{
-            print("Try Again");
+            System.out.println("Try Again");
         }
     }
 
@@ -383,11 +384,11 @@ public class GameFile{
      * @param animal is the animal that we are skinning
      */
     public void skin(String animal){
-        print("Do you want to skin the " + animal + "?");
+        System.out.println("Do you want to skin the " + animal + "?");
         int s = scanner.nextInt();
-        print("1.Yes\n2. No");
+        System.out.println("1.Yes\n2. No");
         if(s == 1){
-            print("Nice, you acquired a " + animal + " skin\nSell back at the town for money");
+            System.out.println("Nice, you acquired a " + animal + " skin\nSell back at the town for money");
             if(animal == manticore){
                 inventoryString += manticoreSkin;
             }else if(animal == jaguar){
@@ -396,9 +397,9 @@ public class GameFile{
                 inventoryString += warewolfSkin;
             }
         }else if(s == 2){
-            print("Ok, maybe next time"); 
+            System.out.println("Ok, maybe next time"); 
         }else{
-            print("Try Again");
+            System.out.println("Try Again");
         }
     }
 
@@ -407,21 +408,21 @@ public class GameFile{
      * jaguar hitting sequence in this method
      */
     public void jaguar(){
-        print("Which weapone should we use?");
-        print("1. Bow\n2. Axe");
+        System.out.println("Which weapone should we use?");
+        System.out.println("1. Bow\n2. Axe");
         int s = scanner.nextInt();
         if(s == 1){
             //repeat until dead
             health();
-            print("The " + jaguar + " is dead!");
+            System.out.println("The " + jaguar + " is dead!");
             skin(jaguar);
         }else if(s == 2){
             //repeat until dead
             health();
-            print("The " + jaguar + " is dead!");
+            System.out.println("The " + jaguar + " is dead!");
             skin(jaguar);
         }else{
-            print("Try Again");
+            System.out.println("Try Again");
         }
     }
 
@@ -430,28 +431,28 @@ public class GameFile{
      * Logging is a method that allows you to get money
      */
     public void logging(){
-        print("Awesome, I need you to collect some wood for the new barn we are building\nThere is a forest near by where you can cut some trees down\nBut I don’t have an axe\nHere take this axe ");
+        System.out.println("Awesome, I need you to collect some wood for the new barn we are building\nThere is a forest near by where you can cut some trees down\nBut I don’t have an axe\nHere take this axe ");
         inventoryString += axe;
-        print("...");
-        print("...");
-        print("...");
-        print("I arrive at the forest and start to cut down my first tree\n“russel” “russel”\nI turn around as I hear something in the bushes behind me\nA jaguar jumps out of the bush");
-		print("Do I want to fight the " + jaguar + " (15HP)");
+        System.out.println("...");
+        System.out.println("...");
+        System.out.println("...");
+        System.out.println("I arrive at the forest and start to cut down my first tree\n“russel” “russel”\nI turn around as I hear something in the bushes behind me\nA jaguar jumps out of the bush");
+		System.out.println("Do I want to fight the " + jaguar + " (15HP)");
         int s = scanner.nextInt();
-        print("1. Yes\n2. No");
+        System.out.println("1. Yes\n2. No");
         if(s == 1){
             jaguar();
-            print("I finish off cutting down some and after a few hours of hard work I have dragged all the tree back to the village");
+            System.out.println("I finish off cutting down some and after a few hours of hard work I have dragged all the tree back to the village");
             bank += 500;
             bank();
             warewolf();
         }else if(s == 2){
-            print("Ok\nI finish off cutting down some and after a few hours of hard work I have dragged all the tree back to the village");
+            System.out.println("Ok\nI finish off cutting down some and after a few hours of hard work I have dragged all the tree back to the village");
             bank += 500;
             bank();
             warewolf();
         }else{
-            print("Try Again");
+            System.out.println("Try Again");
         }
     }
 
@@ -460,7 +461,7 @@ public class GameFile{
      * when called displays current player health
      */
     public void health(){
-        print("Your HP is: " + hp);
+        System.out.println("Your HP is: " + hp);
     }
 
     /**
@@ -552,38 +553,38 @@ public class GameFile{
      * needs to be changed so any skin is accepted. im thinking of using an arrayList
      */
     public void tailorJaguar(){
-        print("Do you want to sell the jaguar skin or take it to the tailor?"); 
-        print("1. Sell\n2. Tailor");
+        System.out.println("Do you want to sell the jaguar skin or take it to the tailor?"); 
+        System.out.println("1. Sell\n2. Tailor");
         int s = scanner.nextInt();
         if(s == 1){
-            print("Walk into the shop\nI have a jaguar skin to sell u\nAwesome here you go +$250");
+            System.out.println("Walk into the shop\nI have a jaguar skin to sell u\nAwesome here you go +$250");
             bank += 250;
             bank();
         }else if(s == 2){
-            print("Hello traveler\nBack already I see\nYes, I have a jaguar skin would you be able to make me some more clothes\nSure, what kind do u want made?");
-            print("1. Hat\n2. Gloves");
+            System.out.println("Hello traveler\nBack already I see\nYes, I have a jaguar skin would you be able to make me some more clothes\nSure, what kind do u want made?");
+            System.out.println("1. Hat\n2. Gloves");
             int s1 = scanner.nextInt();
             if(s1 == 1){
-                print("Ok, thatll be $50\nHere you go");
+                System.out.println("Ok, thatll be $50\nHere you go");
                 bank -= 50;
                 bank();
-                print("...");
-                print("...");
-                print("...");
-                print("All done, have a nice day");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("All done, have a nice day");
             }else if(s1 == 2){
-                print("Ok, that’ll be $50\nHere you go");
+                System.out.println("Ok, that’ll be $50\nHere you go");
                 bank -= 50;
                 bank();
-                print("...");
-                print("...");
-                print("...");
-                print("All done, have a nice day");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("All done, have a nice day");
             }else{
-                print("Try Again");
+                System.out.println("Try Again");
             }
         }else{
-            print("Try Again");
+            System.out.println("Try Again");
         }
     }
 
@@ -600,38 +601,38 @@ public class GameFile{
      * In this method the fighting the warewolf
      */
     public void warewolf(){
-        print("I went and talked to the mayor\nWe really needed your help\nDo you want to help?\n1. Yes\n2. No");
+        System.out.println("I went and talked to the mayor\nWe really needed your help\nDo you want to help?\n1. Yes\n2. No");
         int s = scanner.nextInt();
         if(s == 1){
-            print("Awesome, there has been a beast that has been coming and terrorizes the village on every full moon\nWhat kind of beast?\nIt is a werewolf!\nHow am I going to fight it I don’t have any weapons?\nHere take thig dagger and shield \nThe next full moon is tonight, wait here until nightfall and the beast will appear");
-            print("...");
-            print("...");
-            print("...");
-            print("Where should be hide?");
-            print("1. Town hall"); //additonal places to be added
-            print("Night falls\nI sit quietly and wait\nI see a dark grey figure slowly walk into the town\nI run out into the road and I grab my bow\nI load an arrow and aim at the Werewolf(+15)");
+            System.out.println("Awesome, there has been a beast that has been coming and terrorizes the village on every full moon\nWhat kind of beast?\nIt is a werewolf!\nHow am I going to fight it I don’t have any weapons?\nHere take thig dagger and shield \nThe next full moon is tonight, wait here until nightfall and the beast will appear");
+            System.out.println("...");
+            System.out.println("...");
+            System.out.println("...");
+            System.out.println("Where should be hide?");
+            System.out.println("1. Town hall"); //additonal places to be added
+            System.out.println("Night falls\nI sit quietly and wait\nI see a dark grey figure slowly walk into the town\nI run out into the road and I grab my bow\nI load an arrow and aim at the Werewolf(+15)");
             //put in the fighting mechanic
-            print("Yay I have slain the werewolf\nDo you want to skin the werewolf?");
+            System.out.println("Yay I have slain the werewolf\nDo you want to skin the werewolf?");
             int s1 = scanner.nextInt();
             if(s1 == 1){
                 skin(warewolf);
-                print("Good job, You have slain the warewold");
+                System.out.println("Good job, You have slain the warewold");
                 warewolfTailor();
-                print("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
+                System.out.println("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
                 bank += 500;
                 bank();
             }else if(s1 == 2){
-                print("Good job, You have slain the warewold");
-                print("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
+                System.out.println("Good job, You have slain the warewold");
+                System.out.println("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
                 bank += 500;
                 bank();
             }else{
-                print("Try Again");
+                System.out.println("Try Again");
             }
         }else if(s == 2){
-            print("Try Again"); 
+            System.out.println("Try Again"); 
         }else{
-            print("Try Again"); 
+            System.out.println("Try Again"); 
         }
     }
 
@@ -641,37 +642,37 @@ public class GameFile{
      * you can also sell it here
      */
     public void warewolfTailor(){
-        print("You can sell the skin at the local shop\nWalk into the shop\nI have a werewold\nNice would you like to sell it or craft it into something");
-        print("1. Sell\n2. Craft");
+        System.out.println("You can sell the skin at the local shop\nWalk into the shop\nI have a werewold\nNice would you like to sell it or craft it into something");
+        System.out.println("1. Sell\n2. Craft");
         int s = scanner.nextInt();
         if(s == 1){
-            print("Thanks, here $500");
+            System.out.println("Thanks, here $500");
             bank += 500;
-            bank();
+            System.out.println();
         }else if(s == 2){
-            print("What do you want to craft?\n1. Furr Jacket\n2. Furr Pants");
+            System.out.println("What do you want to craft?\n1. Furr Jacket\n2. Furr Pants");
             int s1 = scanner.nextInt();
             if(s1 == 1){
-                print("Ok, that'll be $50");
+                System.out.println("Ok, that'll be $50");
                 bank -= 50;
                 bank();
-                print("...");
-                print("...");
-                print("...");
-                print("Here you go, have a nice day");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("Here you go, have a nice day");
             }else if(s1 == 2){
-                print("Ok, that'll be $50");
+                System.out.println("Ok, that'll be $50");
                 bank -= 50;
                 bank();
-                print("...");
-                print("...");
-                print("...");
-                print("Here you go, have a nice day");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("...");
+                System.out.println("Here you go, have a nice day");
             }else{
-                print("Try Again");
+                System.out.println("Try Again");
             }
         }else{
-            print("Try Again");
+            System.out.println("Try Again");
         }
     }
 
@@ -697,6 +698,16 @@ public class GameFile{
     }
 
     /**
+     * combination()
+     * method for solving the cave combination
+     * must be correct to enter
+     */
+    public void combination(){
+        System.out.println("There is a lock on the cave\nComplete the combination to gain access to the cave");
+        
+    }
+
+    /**
      * cave() method
      * The player comes to a cave:
      * 1st they will need to get a maths problem correct to enter
@@ -705,48 +716,57 @@ public class GameFile{
      * If they get it right they will make it out
      */
     public void cave(){
-        System.out.println("Try Again"); 
+        if(combination == true){
+         
         //use math here to find the right combination to enter the cave
 
         //then navigating through the cave
-        System.out.println("The path leads to the opening of a cave\nIt is dark inside but there is nowhere else to go\nFind a stick next to the opening of the cave and I tie some animal skin around the top. \nI set it on fire to use as a torch\nAs I enter the cave I can see there is lots of different pathways");
-        System.out.println("Which way should I go?");
-        System.out.println("1. Left\n2. Right");
-        int r = scanner.nextInt();
-        if(r == 1){
-            lostGear(); 
-        }else if(r == 2){   
+        System.out.println("The path leads to the opening of a cave");
+        
+        }else{
+            System.out.println("It is dark inside but there is nowhere else to go\nFind a stick next to the opening of the cave and I tie some animal skin around the top. \nI set it on fire to use as a torch\nAs I enter the cave I can see there is lots of different pathways");
+            System.out.println("Which way should I go?");
             System.out.println("1. Left\n2. Right");
-            int a = scanner.nextInt();
-            if(a == 1){
-                lostGear();
-            }else if(a == 2){
+            int r = scanner.nextInt();
+            if(r == 1){
+                lostGear(); 
+            }else if(r == 2){   
                 System.out.println("1. Left\n2. Right");
-                int b = scanner.nextInt();
-                if(b == 1){
+                int a = scanner.nextInt();
+                if(a == 1){
+                    lostGear();
+                }else if(a == 2){
                     System.out.println("1. Left\n2. Right");
-                    int c = scanner.nextInt();
-                    if(c == 1){
-                        manticore();
-                        manticoreCheck = true;
-                    }else if(c == 2){
-                        lostGear();
+                    int b = scanner.nextInt();
+                    if(b == 1){
+                        System.out.println("1. Left\n2. Right");
+                        int c = scanner.nextInt();
+                        if(c == 1){
+                            manticore();
+                            manticoreCheck = true;
+                        }else if(c == 2){
+                            lostGear();
+                        }else{
+                            System.out.println("Try Again");
+                        }
+                    }else if(b == 2){
+                        lostGear(); 
                     }else{
                         System.out.println("Try Again");
                     }
-                }else if(b == 2){
-                    lostGear(); 
                 }else{
                     System.out.println("Try Again");
                 }
             }else{
-                System.out.println("Try Again");
+                System.out.println("Try Again"); 
             }
-        }else{
-            System.out.println("Try Again"); 
         }
     }
 
+    /**
+     * manticore()
+     * This method defeats the manticore
+     */
     public void manticore(){
         if(manticoreCheck == false){
             System.out.println("I come to the end of the path and I can hear a deep rawr\nOut of the shadows a great beast appears\nIt is a manticore");
@@ -831,6 +851,10 @@ public class GameFile{
         }
     }
 
+    /**
+     * lostGear()
+     * This method is acts out the section where the player regains their gear
+     */
     public void lostGear(){
         System.out.println("Get knocked out\nI keep walking through the cave, and I can see a light \nI must be at the end\nI walk towards and as I am about to exit the cave");
         System.out.println("BANG!!!!");
@@ -838,8 +862,8 @@ public class GameFile{
         System.out.println("...");
         System.out.println("...");
         System.out.println("My eyes open slowly and all I see is sky\nI feel dazed and confused\nAll my belongings are missing");
-        inventoryTemp = inventory;
-        inventory == "";
+        inventoryTemp = inventoryString;
+        inventoryString = "";
         System.out.println("Meet the centor and do his quest, get a shield\nAs I walk along the mountain path I keep getting higher and higher\nThe sky is a dark grey as the clouds gather\nUp ahead there is a clearing amongst the clouds as a beam of sun light shines down onto peak\nOn top I can see something sitting up there\nI travel up to this peak and I find a centor\nHello, he says to me\nHello, who are you and what are you doing up here");
         System.out.println("My name is Liam I am the Centor that looks after these mountains \nWhat is your name?\nI don’t know but I am on an adventure in these mountains\nEvery time there is an indent in the script it is considered to be an peice of text or context of story that happens within the previously chosen option from the player");
         System.out.println("You need to be careful it is dangerous out here\nWhere is your shield?\nShield? I don’t have a shield\nI can get you a shield but I need you to do a task for me, do you accept?");
@@ -899,10 +923,14 @@ public class GameFile{
         }
     }
 
+    /**
+     * climbing() method
+     * this method is called over and over again to complete the climbing of the rock
+     */
     public void climbing(){
         int rand = random.nextInt(1);
         if(climb == 3){
-            System.out.println("")
+            System.out.println("Good job you made it to the top\nThe " + basilisk + " is really close\nYou pull out your bow");
             baslickFight();
         }else{
             System.out.println("Which are should we move to climb?");
@@ -942,6 +970,10 @@ public class GameFile{
         }
     }
 
+    /**
+     * baslickFight()
+     * Method is called until the baslick is defeated
+     */
     public void baslickFight(){
         if(basiliskHealth > 1){
             System.out.println("You killed the " + basilisk);
@@ -960,7 +992,7 @@ public class GameFile{
 
             System.out.println("You have got all your gear back");
             troll();
-            inventory = inventoryTemp;
+            inventoryString = inventoryTemp;
             inventoryTemp = "";
 
         }else{
@@ -992,16 +1024,8 @@ public class GameFile{
         }
     }
 
+
     public void troll(){
         System.out.println("");
     }
-
-    /**
-     * Got sick of writing System.out.print so created a 
-     * method that allows me to jsut type print()
-     * @param p is the text being passed
-     */
-    public void print(String p){
-        System.out.println(p);
-    }                                                                                                                   
-  }
+}

@@ -1,4 +1,4 @@
-@startuml game
+@startuml 
 
 actor :player:
 
@@ -23,6 +23,7 @@ usecase (wareSmith) as wareSmith
 usecase (cave) as cave
 usecase (lost\ngear) as lostGear
 usecase (troll) as troll
+usecase (castle) as castle
 
 'Desert storyline
 usecase (desert) as desert
@@ -68,7 +69,8 @@ wareSmith ..> cave
 wareTailor ..> cave
 cave ..> lostGear
 lostGear ..> troll
-troll ..> dragon
+troll ..> castle
+castle ..> dragon
 
 
 
