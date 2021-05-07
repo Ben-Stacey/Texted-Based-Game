@@ -114,6 +114,7 @@ public class GameFile{
         System.out.println("");
         System.out.println("Inventory " + inventoryString);
         System.out.println("");    
+        gameSetup();
     }
 
     /** 
@@ -134,6 +135,7 @@ public class GameFile{
         }else{
             System.out.println("Please Try Again");
         }
+        wakingUp();
     }
 
     /**
@@ -151,6 +153,7 @@ public class GameFile{
         }else{
             System.out.println("Please Try Again");
         }
+        riverCrossing();
     }
 
     /**
@@ -168,9 +171,9 @@ public class GameFile{
             
             System.out.println("Types (LEFT) or (RIGHT) to steer the boat and avoid the rocks");
             String answer4 = scanner.nextLine();
-            if(answer4 == "LEFT"){
+            if(answer4.equals("LEFT")){
                 System.out.println("");
-            }else if(answer4 == "RIGHT"){
+            }else if(answer4.equals("RIGHT")){
                 System.out.println("");
                 
                 System.out.println("Types (LEFT) or (RIGHT)");
@@ -187,17 +190,17 @@ public class GameFile{
                         String answer3 = scanner.nextLine();
                         if(answer3 == "LEFT"){
                             System.out.println("");
-                        }else if(answer3 == "RIGHT"){
+                        }else if(answer3.equals("RIGHT")){
                             System.out.println("Congratulations, you have successfully made it out of the rocks\nI paddle the boat to the shore line and get out\nGood to be back on dry land");
                         }else{
                             System.out.println("Please Try Again");
                         }
-                    }else if(answer2 == "RIGHT"){
+                    }else if(answer2.equals("RIGHT")){
                         System.out.println("");
                     }else{
                         System.out.println("Please Try Again");
                     }
-                }else if(answer1 == "RIGHT"){
+                }else if(answer1.equals("RIGHT")){
                     System.out.println("");
                 }else{
                     System.out.println("Please Try Again");
