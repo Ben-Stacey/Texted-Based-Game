@@ -95,6 +95,10 @@ public class GameFile{
         game.playerSetup();
     }
 
+    public void space(){
+        System.out.println("");
+    }
+
     /** 
      * playSetup() method
      * This method has all the information about setting up your character
@@ -102,21 +106,21 @@ public class GameFile{
      */
 
     public void playerSetup(){
-        
+        gap();
         System.out.println("Please enter a username:");
         playerName = scanner.nextLine();
+        space();
         System.out.println("Welcome " + playerName);
-        System.out.println("");
+        space();
         System.out.println("HP: " + hp);
-        System.out.println("");
+        space();
         System.out.println("Armour " + myArmour);
-        System.out.println("");
+        space();
         System.out.println("Weapon " + myWeapon);
-        System.out.println("");
-        System.out.println("Inventory " + inventoryString);
-        System.out.println("");    
+        space();
+        System.out.println("Inventory " + inventoryString);    
         gameSetup();
-       
+        gap();
     }
 
     /** 
@@ -125,21 +129,23 @@ public class GameFile{
      */ 
 
     public void gameSetup(){
-        
+        gap();
         System.out.println("To play this game you will be questions and then given possible responses\nType the answer you want to take exactly as it is stated in the question otherwise the program will ask you to try again\nThis is still in development and I already apologies if this crashes during your game\nPlease let me know if this crashes, where it crashes and why.");
         
-        System.out.println("Welcome, in this game you will go on an adventure\nOn your adventure you will meet things that will help you and things that will try to stop you\nThis adventure is not for the faint of heart\nDo you have what it takes?? (Yes or No)");
+        System.out.println("Welcome, in this game you will go on an adventure\nOn your adventure you will meet things that will help you and things that will try to stop you\nThis adventure is not for the faint of heart\nDo you have what it takes??");
+        space();
         System.out.println("1. Yes\n2. No");
         int answer = scanner.nextInt();
-           if(answer == 1){
-               System.out.println("Alright, let the adventure begin");
+        if(answer == 1){
+            wakingUp();
         }else if(answer == 2){
             System.out.println("Please Try Again");
+            gameSetup();
         }else{
             System.out.println("Please Try Again");
+            gameSetup();
         }
-        wakingUp();
-        
+        gap();
     }
 
     /**
@@ -147,19 +153,22 @@ public class GameFile{
      * Start of the game, your character wakes up
      */
     public void wakingUp(){
-        
-        System.out.println("My eyes open slowly as the light beams into my eyes\nI am surrounded by trees as the birds chirp above me\n(Who am I? or What do I do?)");
+        gap();
+        System.out.println("Alright, let the adventure begin");
+        System.out.println("My eyes open slowly as the light beams into my eyes\nI am surrounded by trees as the birds chirp above me");
+        space();
         System.out.println("1. Who am I?\n2. What do I do?");
         int answer = scanner.nextInt();
         if(answer == 1){
             System.out.println(playerName);
+            wakingUp();
         }else if(answer == 2){
-            System.out.println("Maybe I should go for a walk and try and find someone");
+            riverCrossing();
         }else{
             System.out.println("Please Try Again");
+            wakingUp();
         }
-        riverCrossing();
-        System.out.println("--------------------------------------");
+        gap();
     }
 
     /**
@@ -169,8 +178,11 @@ public class GameFile{
      * Failure will result in the player having to do that again
      */
     public void riverCrossing(){
-        System.out.println("--------------------------------------");
+        gap();
+        System.out.println("Maybe I should go for a walk and try and find someone");
+        space();
         System.out.println("I come to the end of the forest and I can see path and a river\n(Follow the path)");
+        space();
         System.out.println("1. Follow the path");
         int answer = scanner.nextInt();
         if(answer == 1){
@@ -217,8 +229,9 @@ public class GameFile{
             }
         }else{
             System.out.println("Please Try Again");
+            riverCrossing();
         }
-        System.out.println("--------------------------------------");
+        gap();
     }
 
     /**
@@ -228,6 +241,7 @@ public class GameFile{
     * The player then decides how they want to play the story
     */
     public void oldMan(){
+        gap();
         System.out.println("You see a house in the distance, and you walk up to it\nKnock of the door\nAn old man opens the door");
         System.out.println("Old Man: 'How can I help?'");
         System.out.println("1. Where am I?");
@@ -260,6 +274,7 @@ public class GameFile{
         }else{
             System.out.println("Try Again");
         }
+        gap();
     }
 
     /**
@@ -1042,7 +1057,7 @@ public class GameFile{
 
     public void gap(){
         System.out.println();
-        System.out.println("--------------------------------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------");
         System.out.println();
     }
 }
