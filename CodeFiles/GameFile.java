@@ -171,6 +171,19 @@ public class GameFile{
         gap();
     }
 
+    public void boatSteering(){
+        System.out.println("1. Left\n2. Right");
+        int answer = scanner.nextInt();
+        if(answer == 1){
+            
+        }else if(answer == 2){
+
+        }else{
+            System.out.println("Try Again");
+            boatSteering();
+        }
+    }
+
     /**
      * riverCrossing() method
      * This method has the player travelling down a river
@@ -181,7 +194,7 @@ public class GameFile{
         gap();
         System.out.println("Maybe I should go for a walk and try and find someone");
         space();
-        System.out.println("I come to the end of the forest and I can see path and a river\n(Follow the path)");
+        System.out.println("I come to the end of the forest and I can see a path and a river\n(Follow the path)");
         space();
         System.out.println("1. Follow the path");
         int answer = scanner.nextInt();
