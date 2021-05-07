@@ -67,6 +67,7 @@ public class GameFile{
     private String meercat = "Meercat";
 
     private String inventoryString = "Empty";
+    priate String inventoryTemp = "";
 
     private String healthPotion = "Health Potion";
     private String strengthPotion = "Strength Potion";
@@ -837,6 +838,8 @@ public class GameFile{
         System.out.println("...");
         System.out.println("...");
         System.out.println("My eyes open slowly and all I see is sky\nI feel dazed and confused\nAll my belongings are missing");
+        inventoryTemp = inventory;
+        inventory == "";
         System.out.println("Meet the centor and do his quest, get a shield\nAs I walk along the mountain path I keep getting higher and higher\nThe sky is a dark grey as the clouds gather\nUp ahead there is a clearing amongst the clouds as a beam of sun light shines down onto peak\nOn top I can see something sitting up there\nI travel up to this peak and I find a centor\nHello, he says to me\nHello, who are you and what are you doing up here");
         System.out.println("My name is Liam I am the Centor that looks after these mountains \nWhat is your name?\nI don’t know but I am on an adventure in these mountains\nEvery time there is an indent in the script it is considered to be an peice of text or context of story that happens within the previously chosen option from the player");
         System.out.println("You need to be careful it is dangerous out here\nWhere is your shield?\nShield? I don’t have a shield\nI can get you a shield but I need you to do a task for me, do you accept?");
@@ -954,6 +957,12 @@ public class GameFile{
                 System.out.println("Try Again");
                 baslickFight();
             }
+
+            System.out.println("You have got all your gear back");
+            troll();
+            inventory = inventoryTemp;
+            inventoryTemp = "";
+
         }else{
             int r = random.nextInt(10);
             String scan = scanner.nextLine();
@@ -981,6 +990,10 @@ public class GameFile{
                 baslickFight();
             }
         }
+    }
+
+    public void troll(){
+        System.out.println("");
     }
 
     /**
