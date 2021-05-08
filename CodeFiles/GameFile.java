@@ -1027,8 +1027,8 @@ public class GameFile {
     }
 
     /**
-     * Prints whatever it is passed.
-     * nice
+     * Prints whatever it is passed. nice
+     * 
      * @param s String you want printed.
      */
     public void p(String s) {
