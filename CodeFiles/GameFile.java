@@ -84,6 +84,7 @@ public class GameFile {
     private int inventoryInt = 0;
     private int inventoryLimit = 10;
     private int climb = 0;
+    private String caveCombination = "";
 
     /**
      * Starts off the running of the program. Only need to call the first method and
@@ -763,7 +764,64 @@ public class GameFile {
      */
     public void combination() {
         p("There is a lock on the cave\nComplete the combination to gain access to the cave");
+        p("You must get the answers right to the questions to get inside");
+        p("Remeber you answers to make the combination");
 
+        combinationOne();
+        combinationTwo();
+        combinationThree();
+
+        String s = scanner.nextLine();
+        if(s.equals(caveCombination)){
+            
+        }else{
+            combination();
+        }
+    }
+
+    public void combinationOne(){
+        int numOne = random.nextInt(10);
+        int numTwo = random.nextInt(10);
+        int scan = scanner.nextInt();
+        int total = numOne * numTwo;
+        String totalString = String.valueOf(total);
+        caveCombination += totalString;
+        if(scan == total){
+
+        }else{
+            p("Try Again");
+            combination();
+        }
+    }
+
+    public void combinationTwo(){
+        int numOne = random.nextInt(10);
+        int numTwo = random.nextInt(10);
+        int scan = scanner.nextInt();
+        int total = numOne + numTwo;
+        String totalString = String.valueOf(total);
+        caveCombination += totalString;
+        if(scan == total){
+
+        }else{
+            p("Try Again");
+            combination();
+        }
+    }
+
+    public void combinationThree(){
+        int numOne = random.nextInt(10);
+        int numTwo = random.nextInt(10);
+        int scan = scanner.nextInt();
+        int total = numOne - numTwo;
+        String totalString = String.valueOf(total);
+        caveCombination += totalString;
+        if(scan == total){
+
+        }else{
+            p("Try Again");
+            combination();
+        }
     }
 
     /**
@@ -1032,19 +1090,7 @@ public class GameFile {
     public void baslickFight() {
         if (basiliskHealth > 1) {
             p("You killed the " + basilisk);
-            int s = scanner.nextInt();
-            p("Do you want to skin the " + basilisk);
-            p("1. Yes");
-            p("2. No");
-            if (s == 1) {
-                skin(basilisk);
-            } else if (s == 2) {
-                p("Ok");
-            } else {
-                p("Try Again");
-                baslickFight();
-            }
-
+            space();
             p("You have got all your gear back");
             troll();
             inventoryString = inventoryTemp;
@@ -1080,7 +1126,16 @@ public class GameFile {
     }
 
     public void troll() {
-        p("");
+        gap();
+        p("Im so thristy, I can hear the sound of a crashing waterfall. There must be a river I can get some water from");
+        p("On the horizon there is a river flowing\nI start climbing dwown the mountain and bash through the bush towards it");
+        p("...");
+        p("...");
+        p("...");
+        p("After coming out of the bush I can see the river\nThe banks are too steap on this side so I'll cross over to get some water");
+        p("Luckily there is a bridge here that I can cross");
+        p("As I walk down the water I can see a shadow coming from under the bridge");
+        p("")
     }
 
     /** Inserts a gap. */
