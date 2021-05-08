@@ -123,8 +123,7 @@ public class GameFile {
      */
 
     public void gameSetup() {
-        p("To play this game you will be questions and then given possible responses\nType the answer you want to take exactly as it is stated in the question otherwise the program will ask you to try again\nThis is still in development and I already apologies if this crashes during your game\nPlease let me know if this crashes, where it crashes and why.");
-
+        p("To play this game you will be asked questions and then given possible responses\nType the answer you want to take exactly as it is stated in the question otherwise the program will ask you to try again\nThis is still in development and I already apologise if this crashes during your game\nPlease let me know if this crashes, where it crashes and why.");
         p("Welcome, in this game you will go on an adventure\nOn your adventure you will meet things that will help you and things that will try to stop you\nThis adventure is not for the faint of heart\nDo you have what it takes?? (Yes or No)");
         p("1. Yes\n2. No");
         int answer = scanner.nextInt();
@@ -266,7 +265,7 @@ public class GameFile {
      * desert() method Takes the user to the desert
      */
     public void desert() {
-        p("The desert is hot and dry. You might want to find a few water bottles to take some water with you, you don’t get dehydrated");
+        p("The desert is hot and dry. You might want to find a few water bottles to take some water with you, so you don’t get dehydrated");
         p("After a long walk you come to a small village, you go into a small shop.\nHello, do u have any water bottles?\nYes, How many do you want?\n1. 1\n2. 2");
         int s = scanner.nextInt();
         if (s == 1) {
