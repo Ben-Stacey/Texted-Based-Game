@@ -302,10 +302,10 @@ public class GameFile {
         int s = scanner.nextInt();
         if (s == 1) {
             p("Ok, that'll be $20\nOh no I don’t have any money\nWell why do u want them\nI am going on an adventure to the desert\nNo u don’t want to go there, you’ll never survive\nIf it is an adventure your looking you should go to the mountains");
-            shop();
+            map();
         } else if (s == 2) {
             p("Ok, that'll be $20\nOh no I don’t have any money\nWell why do u want them\nI am going on an adventure to the desert\nNo u don’t want to go there, you’ll never survive\nIf it is an adventure your looking you should go to the mountains");
-            shop();
+            map();
         } else {
             p("Try Again");
             desert();
@@ -779,6 +779,10 @@ public class GameFile {
         }
     }
 
+    /**  
+     * combinationOne()
+     * The first part of the cave combination
+     */
     public void combinationOne(){
         int numOne = random.nextInt(10);
         int numTwo = random.nextInt(10);
@@ -786,14 +790,21 @@ public class GameFile {
         int total = numOne * numTwo;
         String totalString = String.valueOf(total);
         caveCombination += totalString;
+        p("What is " + numOne + " x " + numTwo +"?");
         if(scan == total){
-
+            p("Good job");
+            combinationTwo();
+            combination = true;
         }else{
             p("Try Again");
             combination();
         }
     }
 
+    /**  
+     * combinationTwo()
+     * The second part of the cave combination
+     */
     public void combinationTwo(){
         int numOne = random.nextInt(10);
         int numTwo = random.nextInt(10);
@@ -801,14 +812,20 @@ public class GameFile {
         int total = numOne + numTwo;
         String totalString = String.valueOf(total);
         caveCombination += totalString;
+        p("What is " + numOne + " + " + numTwo +"?");
         if(scan == total){
-
+            p("Good job");
+            combinationThree();
         }else{
             p("Try Again");
             combination();
         }
     }
 
+    /**  
+     * combinationThree()
+     * The third part of the cave combination
+     */
     public void combinationThree(){
         int numOne = random.nextInt(10);
         int numTwo = random.nextInt(10);
@@ -816,8 +833,9 @@ public class GameFile {
         int total = numOne - numTwo;
         String totalString = String.valueOf(total);
         caveCombination += totalString;
+        p("What is " + numOne + " - " + numTwo +"?");
         if(scan == total){
-
+            p("Good job");
         }else{
             p("Try Again");
             combination();
@@ -831,14 +849,8 @@ public class GameFile {
      * their gear If they get it right they will make it out
      */
     public void cave() {
+        combination();
         if (combination == true) {
-
-            // use math here to find the right combination to enter the cave
-
-            // then navigating through the cave
-            p("The path leads to the opening of a cave");
-
-        } else {
             p("It is dark inside but there is nowhere else to go\nFind a stick next to the opening of the cave and I tie some animal skin around the top. \nI set it on fire to use as a torch\nAs I enter the cave I can see there is lots of different pathways");
             p("Which way should I go?");
             p("1. Left\n2. Right");
