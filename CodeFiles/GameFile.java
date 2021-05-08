@@ -101,20 +101,21 @@ public class GameFile {
      */
 
     public void playerSetup() {
+        gap();
         p("Please enter a username:");
         playerName = scanner.nextLine();
+        space();
         p("Welcome " + playerName);
-        p("");
+        space();
         p("HP: " + hp);
-        p("");
+        space();
         p("Armour " + myArmour);
-        p("");
+        space();
         p("Weapon " + myWeapon);
-        p("");
+        space();
         p("Inventory " + inventoryString);
-        p("");
+        space();
         gameSetup();
-        gap();
     }
 
     /**
@@ -123,34 +124,43 @@ public class GameFile {
      */
 
     public void gameSetup() {
+        gap();
         p("To play this game you will be questions and then given possible responses\nType the answer you want to take exactly as it is stated in the question otherwise the program will ask you to try again\nThis is still in development and I already apologies if this crashes during your game\nPlease let me know if this crashes, where it crashes and why.");
-
+        space();
         p("Welcome, in this game you will go on an adventure\nOn your adventure you will meet things that will help you and things that will try to stop you\nThis adventure is not for the faint of heart\nDo you have what it takes?? (Yes or No)");
+        space();
         p("1. Yes\n2. No");
         int answer = scanner.nextInt();
         if (answer == 1) {
             p("Alright, let the adventure begin");
+            wakingUp();
         } else if (answer == 2) {
             p("Please Try Again");
+            gameSetup();
         } else {
             p("Please Try Again");
+            gameSetup();
         }
-        gap();
     }
 
     /**
      * wakingUp() method Start of the game, your character wakes up
      */
     public void wakingUp() {
+        gap();
         p("My eyes open slowly as the light beams into my eyes\nI am surrounded by trees as the birds chirp above me\n(Who am I? or What do I do?)");
+        space();
         p("1. Who am I?\n2. What do I do?");
         int answer = scanner.nextInt();
         if (answer == 1) {
             p(playerName);
+            wakingUp();
         } else if (answer == 2) {
             p("Maybe I should go for a walk and try and find someone");
+            riverCrossing();
         } else {
             p("Please Try Again");
+            wakingUp();
         }
     }
 
@@ -160,53 +170,62 @@ public class GameFile {
      * will result in the player having to do that again
      */
     public void riverCrossing() {
-        p("I come to the end of the forest and I can see path and a river\n(Follow the path)");
+        gap();
+        p("I come to the end of the forest and I can see path and a river");
+        space();
         p("1. Follow the path");
         int answer = scanner.nextInt();
         if (answer == 1) {
             p("At the end of the path there is a river\nA boat is on the shore\nI push the boat into the river and jump on\nI sit in this small wooden boat and look at the beautiful mountains in the background\nI hear a rumble in the distance and can see rocks up ahead\nI can see rapids up ahead");
-
+            space();
             p("Types (LEFT) or (RIGHT) to steer the boat and avoid the rocks");
             String answer4 = scanner.nextLine();
             if (answer4.equals("LEFT")) {
-                p("");
+                space();
+                //riverCrossing();
             } else if (answer4.equals("RIGHT")) {
-                p("");
-
+                space();
                 p("Types (LEFT) or (RIGHT)");
                 String answer1 = scanner.nextLine();
                 if (answer1.equals("LEFT")) {
-                    p("");
-
+                    space();
                     p("Types (LEFT) or (RIGHT)");
                     String answer2 = scanner.nextLine();
                     if (answer2.equals("LEFT")) {
-                        p("");
-
+                        space();
                         p("Types (LEFT) or (RIGHT)");
                         String answer3 = scanner.nextLine();
                         if (answer3.equals("LEFT")) {
-                            p("");
+                            space();
+                            riverCrossing();
                         } else if (answer3.equals("RIGHT")) {
                             p("Congratulations, you have successfully made it out of the rocks\nI paddle the boat to the shore line and get out\nGood to be back on dry land");
+                            oldMan();
                         } else {
                             p("Please Try Again");
+                            riverCrossing();
                         }
                     } else if (answer2.equals("RIGHT")) {
-                        p("");
+                        space();
+                        riverCrossing();
                     } else {
                         p("Please Try Again");
+                        riverCrossing();
                     }
                 } else if (answer1.equals("RIGHT")) {
-                    p("");
+                    space();
+                    riverCrossing();
                 } else {
                     p("Please Try Again");
+                    riverCrossing();
                 }
             } else {
                 p("Please Try Again");
+                riverCrossing();
             }
         } else {
             p("Please Try Again");
+            riverCrossing();
         }
         gap();
     }
@@ -217,22 +236,32 @@ public class GameFile {
      * play the story
      */
     public void oldMan() {
+        gap();
         p("You see a house in the distance, and you walk up to it\nKnock of the door\nAn old man opens the door");
         p("Old Man: 'How can I help?'");
+        space();
         p("1. Where am I?");
         p("2. Who are you?");
         int answer = scanner.nextInt();
         if (answer == 1) {
             p("You are in Big Bloke Land");
+            oldMan();
         } else if (answer == 2) {
             p("My name is Tim\nWho are you?\nI dont know\nWhat can I do around here?");
             p("There is lots of things to around here, here take this map");
+            map();
         } else {
             p("Try Again");
+            oldMan();
         }
+        gap();
+    }
 
+    public void map(){
         p(""); // map insert here, arguments
-        p("Where should we go?\n1. The Town\n2. The desert\n3. The Ocean");
+        p("Where should we go?");
+        space();
+        p("n1. The Town\n2. The desert\n3. The Ocean");
         int a = scanner.nextInt();
         if (a == 1) {
             p("Good choice");
@@ -248,6 +277,7 @@ public class GameFile {
             mountain();
         } else {
             p("Try Again");
+            map();
         }
         gap();
     }
@@ -258,50 +288,67 @@ public class GameFile {
      * you moeny
      */
     public void shop() {
+        gap();
         p("You walk inside the shop\nHello, I’m going an adventure into the mountains and I need some warm clothes. The only problem is that I haven’t got any money\nHmmm, well I need some 3 new deer skins to make clothes and if you collect them ill make you your clothes for free. Do you accept?");
         hunting();
+        gap();
     }
 
     /**
      * desert() method Takes the user to the desert
      */
     public void desert() {
+        gap();
         p("The desert is hot and dry. You might want to find a few water bottles to take some water with you, you don’t get dehydrated");
-        p("After a long walk you come to a small village, you go into a small shop.\nHello, do u have any water bottles?\nYes, How many do you want?\n1. 1\n2. 2");
+        p("After a long walk you come to a small village, you go into a small shop.\nHello, do u have any water bottles?\nYes, How many do you want?");
+        space();
+        p("1. 1\n2. 2");
         int s = scanner.nextInt();
         if (s == 1) {
             p("Ok, that'll be $20\nOh no I don’t have any money\nWell why do u want them\nI am going on an adventure to the desert\nNo u don’t want to go there, you’ll never survive\nIf it is an adventure your looking you should go to the mountains");
+            shop();
         } else if (s == 2) {
             p("Ok, that'll be $20\nOh no I don’t have any money\nWell why do u want them\nI am going on an adventure to the desert\nNo u don’t want to go there, you’ll never survive\nIf it is an adventure your looking you should go to the mountains");
+            shop();
         } else {
             p("Try Again");
+            desert();
         }
+        gap();
     }
 
     /**
      * ocean() method Takes the player to the ocean
      */
     public void ocean() {
+        gap();
         p("Your swimming ability isn’t great, head to the closest town and find boat\nAfter a long walk you come to a small village, you go to the port and find a fisherman");
-        p("Hello, can I get a ride on your boat?\nWhy do u want to a ride?\nI am going on an adventure across the ocean\nNo u don’t want to go there, the ocean is harsh and dangerous place\nIf it is an adventure your looking you should go to the mountains");
+        p("Hello, can I get a ride on your boat?\nWhy do u want to a ride?\nI am going on an adventure across the ocean\nNo u don’t want to go there, the ocean is harsh and dangerous place\nIf it is an adventure your looking you should go somewhere else");
+        map();
     }
 
     /**
      * mountain() method Takes the player to the mountains
      */
     public void mountain() {
+        gap();
         p("I see the same man standing a few doors down and go talk to him\nI tell him how I am on an adventure into the mountains and ask him is there is anything I may need before I go there\nHe looks at me with a terrifying look\nYou know what’s in those mountains, don’t you?");
+        space();
         p("1. Yes\n2. No");
         int s = scanner.nextInt();
         if (s == 1) {
             p("Yes, but do have anything else to tell me about it?\nThere are dangerous beasts that live in those mountains \nI even hear there is a dragon that protects the highest peak\nNo man has ever come out of there alive");
+            map();
         } else if (s == 2) {
             p("There are dangerous beasts that live in those mountains \nI even hear there is a dragon that protects the highest peak\nNo man has ever come out of there alive");
+            map();
         } else {
             p("Try Again");
+            mountain();
         }
         p("I would not even think about heading into those mountains without a sword\nThere is a blacksmith in town he can make you a sword\nBut I don’t have any money\nThen you should go talk to the mayor he has some tasks that he will pay you to do\nYou walk into the town hall and see the mayor");
         mayor();
+        gap();
     }
 
     /**
@@ -323,28 +370,34 @@ public class GameFile {
      * mayor() method The mayor gives out job which can get you money
      */
     public void mayor() {
+        gap();
         p("Hello, I am the mayor. I can give you tasks that you can complete for money\nWould you like to do a challenge?");
+        space();
         p("1. Yes\n2. No");
         int s = scanner.nextInt();
         if (s == 1) {
-            p("Awsesome!");
             randomTask();
         } else if (s == 2) {
             p("Try Again");
+            mayor();
         } else {
             p("Try Again");
+            mayor();
         }
+        gap();
     }
 
     /**
      * fishing() method Fishing is a method that allows you to get money
      */
     public void fishing() {
+        gap();
         p("Awesome, we need some more fish for the village\nhere is a river not far from here full of fish");
         p("...");
         p("...");
         p("...");
         p("After reaching the river I can see there is a few deep pools filled with fish\nNow I need to catch them, how should I catch them?");
+        space();
         p("1.Fishing Rod\n2. Net\n2. Trap");
         int s1 = scanner.nextInt();
         if (s1 == 1) { // Fishing
@@ -360,16 +413,8 @@ public class GameFile {
             p("...");
             p("...");
             p("...");
-            p("Nothing\nI keep trying again it does work great, but I eventually get enough");// This text needs to be
-                                                                                              // edited as it boring the
-                                                                                              // same should be added
-                                                                                              // into the trap below
-            p("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500"); // value
-                                                                                                          // should be
-                                                                                                          // different
-                                                                                                          // depending
-                                                                                                          // on what is
-                                                                                                          // caught
+            p("Nothing\nI keep trying again it does work great, but I eventually get enough");// This text needs to be edited as it boring the same should be added into the trap below
+            p("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500"); // value should be different depending on what is caught
             bank += 500;
         } else if (s1 == 3) { // Trap
             p("I pile rocks up below the deep pool in the river to make a small dam\nI grab some reeds from the side of the river and weave it into a little basket and place it In the middle of the dam\nI then walk to the top of the deep pool and thrash about to make lots of noise and scare the fish into the basket\nI check the basket and it is full of fish");
@@ -377,18 +422,21 @@ public class GameFile {
             bank += 500;
         } else {
             p("Try Again");
+            fishing();
         }
+        gap();
     }
 
     /**
-     * skin() method skinng an animal method This needs to be changed from jaguar
+     * skin() 
      * skin to work with any animal
-     * 
      * @param animal is the animal that we are skinning
      */
     public void skin(String animal) {
+        space();
         p("Do you want to skin the " + animal + "?");
         int s = scanner.nextInt();
+        space();
         p("1.Yes\n2. No");
         if (s == 1) {
             p("Nice, you acquired a " + animal + " skin\nSell back at the town for money");
@@ -399,17 +447,22 @@ public class GameFile {
             } else if (animal == warewolf) {
                 inventoryString += warewolfSkin;
             }
+            //needs to exit back to game somehow
         } else if (s == 2) {
             p("Ok, maybe next time");
+            // needs to exit back to game somehow
         } else {
             p("Try Again");
+            skin(animal);
         }
+        space();
     }
 
     /**
      * jaguar() method jaguar hitting sequence in this method
      */
     public void jaguar() {
+        gap();
         p("Which weapone should we use?");
         p("1. Bow\n2. Axe");
         int s = scanner.nextInt();
@@ -425,13 +478,16 @@ public class GameFile {
             skin(jaguar);
         } else {
             p("Try Again");
+            jaguar();
         }
+        gap();
     }
 
     /**
      * logging() method Logging is a method that allows you to get money
      */
     public void logging() {
+        gap();
         p("Awesome, I need you to collect some wood for the new barn we are building\nThere is a forest near by where you can cut some trees down\nBut I don’t have an axe\nHere take this axe ");
         inventoryString += axe;
         p("...");
@@ -440,6 +496,7 @@ public class GameFile {
         p("I arrive at the forest and start to cut down my first tree\n“russel” “russel”\nI turn around as I hear something in the bushes behind me\nA jaguar jumps out of the bush");
         p("Do I want to fight the " + jaguar + " (15HP)");
         int s = scanner.nextInt();
+        space();
         p("1. Yes\n2. No");
         if (s == 1) {
             jaguar();
@@ -454,14 +511,18 @@ public class GameFile {
             warewolf();
         } else {
             p("Try Again");
+            logging();
         }
+        gap();
     }
 
     /**
      * health() method when called displays current player health
      */
     public void health() {
+        space();
         p("Your HP is: " + hp);
+        space();
     }
 
     /**
@@ -469,14 +530,18 @@ public class GameFile {
      * displayed
      */
     public void inventory() {
+        space();
         p("My inventory has " + inventoryString);
+        space();
     }
 
     /**
      * hunting() method Hunting is a method that allows you to get money
      */
     public void hunting() {
+        gap();
         p("1. Yes\n2. No");
+        space();
         int answer = scanner.nextInt();
         if (answer == 1) {
             p("Awesome, there is a forest not far from here you can go there \nThank you");
@@ -542,9 +607,12 @@ public class GameFile {
             }
         } else if (answer == 2) {
             p("Try Again");
+            hunting();
         } else {
             p("Try Again");
+            hunting();
         }
+        gap();
     }
 
     /**
@@ -1024,6 +1092,10 @@ public class GameFile {
     public void gap() {
         p("");
         p("--------------------------------------------------------------------------------------------");
+        p("");
+    }
+
+    public void space(){
         p("");
     }
 
