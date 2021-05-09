@@ -27,6 +27,9 @@ public class GameFile {
     private String centor = "Centor";
     private int centorHealth = 10;
 
+    private String troll = "troll";
+    private int trollHealth = 10;
+
     private String jaguar = "Jaguar";
     private int jaguarHealth = 10;
 
@@ -37,6 +40,7 @@ public class GameFile {
     private int manticoreHealth = 10;
 
     private String basiliskSkin = "Basilish Skin";
+    private String trollSkin = "Troll Skin";
     private String centorSkin = "Centor Skin";
     private String jaguarSkin = "Jaguar Skin";
     private String warewolfSkin = "Warewolf Skin";
@@ -74,7 +78,7 @@ public class GameFile {
     private String strengthPotion = "Strength Potion";
 
     private Scanner scanner = new Scanner(System.in);
-    private Random random;
+    private Random random = new Random();
 
     private boolean manticoreCheck = false;
     private boolean combination = false;
@@ -131,7 +135,6 @@ public class GameFile {
         p("1. Yes\n2. No");
         int answer = scanner.nextInt();
         if (answer == 1) {
-            p("Alright, let the adventure begin");
             wakingUp();
         } else if (answer == 2) {
             p("Please Try Again");
@@ -147,6 +150,8 @@ public class GameFile {
      */
     public void wakingUp() {
         gap();
+        p("Alright, let the adventure begin");
+        space();
         p("My eyes open slowly as the light beams into my eyes\nI am surrounded by trees as the birds chirp above me\n(Who am I? or What do I do?)");
         space();
         p("1. Who am I?\n2. What do I do?");
@@ -155,10 +160,10 @@ public class GameFile {
             p(playerName);
             wakingUp();
         } else if (answer == 2) {
-            p("Maybe I should go for a walk and try and find someone");
+            space();
             riverCrossing();
         } else {
-            p("Please Try Again");
+            p("Please Try HelloAgain");
             wakingUp();
         }
     }
@@ -170,18 +175,22 @@ public class GameFile {
      */
     public void riverCrossing() {
         gap();
+        p("Maybe I should go for a walk and try and find someone");
+        space();
         p("I come to the end of the forest and I can see path and a river");
+        p("What should I do?");
         space();
         p("1. Follow the path");
         int answer = scanner.nextInt();
         if (answer == 1) {
+            space();
             p("At the end of the path there is a river\nA boat is on the shore\nI push the boat into the river and jump on\nI sit in this small wooden boat and look at the beautiful mountains in the background\nI hear a rumble in the distance and can see rocks up ahead\nI can see rapids up ahead");
             space();
             p("Types (LEFT) or (RIGHT) to steer the boat and avoid the rocks");
             String answer4 = scanner.nextLine();
             if (answer4.equals("LEFT")) {
                 space();
-                //riverCrossing();
+                riverCrossing();
             } else if (answer4.equals("RIGHT")) {
                 space();
                 p("Types (LEFT) or (RIGHT)");
@@ -219,9 +228,13 @@ public class GameFile {
                     riverCrossing();
                 }
             } else {
+                gap();
                 p("Please Try Again");
+                p("12");
                 riverCrossing();
             }
+        }else if(answer == 2){
+            p("other option");
         } else {
             p("Please Try Again");
             riverCrossing();
@@ -1147,7 +1160,25 @@ public class GameFile {
         p("After coming out of the bush I can see the river\nThe banks are too steap on this side so I'll cross over to get some water");
         p("Luckily there is a bridge here that I can cross");
         p("As I walk down the water I can see a shadow coming from under the bridge");
-        p("")
+        
+        space();
+        p("Do you want to fight the troll");
+        space();
+        p("1. Yes\n2. No");
+        int scan = scanner.nextInt();
+        if(scan == 1){
+            trollFight();
+        }else if(scan == 2){
+            p("Try Again");
+            troll();
+        }else{
+            p("Try Again");
+            troll();
+        }
+    }
+
+    public void trollFight(){
+        
     }
 
     /** Inserts a gap. */
