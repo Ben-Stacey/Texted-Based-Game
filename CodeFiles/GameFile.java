@@ -310,20 +310,57 @@ public class GameFile {
      * desert() method Takes the user to the desert
      */
     public void desert() {
+        gap();
+        p("You enter the desert and find 20 bucks on the ground, nice.");
+        bank += 20;
         p("The desert is hot and dry. You might want to find a few water bottles to take some water with you, so you don’t get dehydrated");
-        p("After a long walk you come to a small village, you go into a small shop.\nHello, do u have any water bottles?\nYes, How many do you want?\n1. 1\n2. 2");
+        p("After a long walk you come to a small village, you go into a small shop.\nHello, do u have any water bottles?\nYes, that'll be $20 a bottle. How many would you like?\n1. 1\n2. 2");
         int s = scanner.nextInt();
         if (s == 1) {
-            p("Ok, that'll be $20\nOh no I don’t have any money\nWell why do u want them\nI am going on an adventure to the desert\nNo u don’t want to go there, you’ll never survive\nIf it is an adventure your looking you should go to the mountains");
-            map();
+            p("Ok, that'll be $20.");
+            if (bank < 20){
+                p("Oh no I don't have enough money!\nI better go back to the map.");
+                map();
+            }
+            else{
+                bank -= 20;
+                p("Thank you");
+            }
         } else if (s == 2) {
-            p("Ok, that'll be $20\nOh no I don’t have any money\nWell why do u want them\nI am going on an adventure to the desert\nNo u don’t want to go there, you’ll never survive\nIf it is an adventure your looking you should go to the mountains");
-            map();
+            p("Ok, that'll be $40\n.");
+            if (bank < 40){
+                p("Oh no I don't have enough money!\nI better go back to the map.");
+                map();
+            }
+            else{
+                bank -= 40;
+                p("Thank you.");
+            }
         } else {
             p("Try Again");
             desert();
         }
-        gap();
+        p("How come you're in the desert anyway?\nI'm going on an adventure!\nWow the last time I saw someone go on an adventure into the desert was 20 odd years ago now, a guy named Paul, I would recommend going to the mountains, no the desert.");
+        p("What happened to Paul?");
+        p("He got munched.\nWhat do you mean he got munched?!\nI mean he got munched.\nBy what?\nA toad.\nA toad?\nYeah it was a pretty big toad.\nOh no good.\nShops closed, bye.\nDo you go to the mountains or further into the desert? \n1. Mountains\n2. Desert");
+        int loc = scanner.nextInt();
+        if (loc == 1){
+            mountain();
+        }else if(loc == 2){
+            p("Do you head north or south?\n1. North\n2. South");
+        }else{
+            p("Try again");
+            desert();
+        }
+        int nors = scanner.nextInt();
+        if (nors == 1){
+            
+        }else if(nors == 2){
+
+        }else{
+            p("Try again");
+            desert();
+        }
     }
 
     /**
@@ -1160,25 +1197,7 @@ public class GameFile {
         p("After coming out of the bush I can see the river\nThe banks are too steap on this side so I'll cross over to get some water");
         p("Luckily there is a bridge here that I can cross");
         p("As I walk down the water I can see a shadow coming from under the bridge");
-        
-        space();
-        p("Do you want to fight the troll");
-        space();
-        p("1. Yes\n2. No");
-        int scan = scanner.nextInt();
-        if(scan == 1){
-            trollFight();
-        }else if(scan == 2){
-            p("Try Again");
-            troll();
-        }else{
-            p("Try Again");
-            troll();
-        }
-    }
-
-    public void trollFight(){
-        
+        p("");
     }
 
     /** Inserts a gap. */
