@@ -327,21 +327,30 @@ public class GameFile {
 
     public void map(){
         p(""); // map insert here, arguments
+        space();
         p("Where should we go?");
         space();
         p("1. The Town\n2. The desert\n3. The Ocean");
         int a = scanner.nextInt();
         if (a == 1) {
+            space();
             p("Good choice");
+            space();
             shop();
         } else if (a == 2) {
+            space();
             p("Good choice");
+            space();
             desert();
         } else if (a == 3) {
+            space();
             p("Good choice");
+            space();
             ocean();
         } else if (a == 4) {
+            space();
             p("Good choice");
+            space();
             mountain();
         } else {
             p("Try Again");
@@ -370,33 +379,53 @@ public class GameFile {
         p("You enter the desert and find 20 bucks on the ground, nice.");
         bank += 20;
         p("The desert is hot and dry. You might want to find a few water bottles to take some water with you, so you don’t get dehydrated");
-        p("After a long walk you come to a small village, you go into a small shop.\nHello, do u have any water bottles?\nYes, that'll be $20 a bottle. How many would you like?\n1. 1\n2. 2");
+        p("After a long walk you come to a small village, you go into a small shop.");
+        space();
+        p("Hello, do u have any water bottles?");
+        space();
+        p("Yes, that'll be $20 a bottle. How many would you like?");
+        space();
+        p("1. 1/n2. 2");
+        space();
         int s = scanner.nextInt();
         if (s == 1) {
             p("Ok, that'll be $20.");
             if (bank < 20){
-                p("Oh no I don't have enough money!\nI better go back to the map.");
-                map();
+                space();
+                p("Thank you, have a nice day");
+                space();
             }
             else{
+                space();
                 bank -= 20;
                 p("Thank you");
+                space();
             }
         } else if (s == 2) {
-            p("Ok, that'll be $40\n.");
+            space();
+            p("Ok, that'll be " + 2 * 20);
             if (bank < 40){
+                space();
                 p("Oh no I don't have enough money!\nI better go back to the map.");
                 map();
+                space();
             }
             else{
                 bank -= 40;
+                space();
                 p("Thank you.");
+                space();
             }
         } else {
             p("Try Again");
             desert();
         }
-        p("How come you're in the desert anyway?\nI'm going on an adventure!\nWow the last time I saw someone go on an adventure into the desert was 20 odd years ago now, a guy named Paul, I would recommend going to the mountains, no the desert.");
+        space();
+        p("How come you're in the desert anyway?");
+        space();
+        p("I'm going on an adventure!");
+        space();
+        p("Wow the last time I saw someone go on an adventure into the desert was 20 odd years ago now, a guy named Paul, I would recommend going to the mountains, not the desert.");
         p("What happened to Paul?");
         p("He got munched.\nWhat do you mean he got munched?!\nI mean he got munched.\nBy what?\nA toad.\nA toad?\nYeah it was a pretty big toad.\nOh no good.\nShops closed, bye.\nDo you go to the mountains or further into the desert? \n1. Mountains\n2. Desert");
         int loc = scanner.nextInt();
@@ -424,8 +453,14 @@ public class GameFile {
      */
     public void ocean() {
         gap();
-        p("Your swimming ability isn’t great, head to the closest town and find boat\nAfter a long walk you come to a small village, you go to the port and find a fisherman");
-        p("Hello, can I get a ride on your boat?\nWhy do u want to a ride?\nI am going on an adventure across the ocean\nNo u don’t want to go there, the ocean is harsh and dangerous place\nIf it is an adventure your looking you should go somewhere else");
+        p("Your swimming ability isn’t great, head to the closest town and find boat");
+        space();
+        p("After a long walk you come to a small village, you go to the port and find a fisherman");
+        p("Hello, can I get a ride on your boat?");
+        space();
+        p("Why do u want to a ride?");
+        space();
+        p("I am going on an adventure across the ocean\nNo u don’t want to go there, the ocean is harsh and dangerous place\nIf it is an adventure your looking you should go somewhere else");
         map();
     }
 
