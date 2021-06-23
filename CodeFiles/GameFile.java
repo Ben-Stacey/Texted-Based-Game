@@ -88,6 +88,7 @@ public class GameFile {
     private int inventoryInt = 0;
     private int inventoryLimit = 10;
     private int climb = 0;
+    private int count = 3;
     private String caveCombination = "";
 
     /**
@@ -161,7 +162,7 @@ public class GameFile {
             wakingUp();
         } else if (answer == 2) {
             space();
-            riverCrossing();
+            riverSetup();
         } else {
             p("Please Try HelloAgain");
             wakingUp();
@@ -173,6 +174,7 @@ public class GameFile {
      * player must type left and right to navigate there way down the river Failure
      * will result in the player having to do that again
      */
+    /**
     public void riverCrossing() {
         gap();
         p("Maybe I should go for a walk and try and find someone");
@@ -241,7 +243,61 @@ public class GameFile {
         }
         gap();
     }
+    */
 
+    /**
+     * riverSetup() method
+     * This sets up the scene for travelling down the river
+     */
+    public void riverSetup(){
+        gap();
+        p("Maybe I should go for a walk and try and find someone");
+        space();
+        p("I come to the end of the forest and I can see path and a river");
+        p("What should I do?");
+        space();
+        p("1. Follow the path");
+        int answer = scanner.nextInt();
+        if (answer == 1) {
+            space();
+            p("At the end of the path there is a river\nA boat is on the shore\nI push the boat into the river and jump on\nI sit in this small wooden boat and look at the beautiful mountains in the background\nI hear a rumble in the distance and can see rocks up ahead\nI can see rapids up ahead");
+            river(count);
+        }else{
+            p("Try Again");
+            riverSetup();
+        }
+    }
+
+    /**
+     * river() method
+     * This is the actual process that is ran recusrivley for the left and right
+     * sequence of the boat travelling down the river
+     * @param count
+     */
+    public void river(int count){
+        if(count == 0){
+            p("Congratulations, you have successfully made it out of the rocks\nI paddle the boat to the shore line and get out\nGood to be back on dry land");
+            oldMan();
+            gap();
+        }
+        //int r = random.nextInt(1);
+        space();
+        p("Type (LEFT) or (RIGHT) to steer the boat and avoid the rocks");
+        String answer4 = scanner.nextLine();
+        if (answer4.equals("LEFT")) {
+            space();
+            river(count - 1);
+        } else if (answer4.equals("RIGHT")) {
+            space();
+            p("Type (LEFT) or (RIGHT)");
+            river(count - 1);
+        }else{
+            space();
+            //p("Try Again");
+            river(count);
+        }
+        gap();
+    }
     /**
      * oldMan() method This method is where the main part of the story starts You
      * meet an old man and he gives a map The player then decides how they want to
@@ -273,7 +329,7 @@ public class GameFile {
         p(""); // map insert here, arguments
         p("Where should we go?");
         space();
-        p("n1. The Town\n2. The desert\n3. The Ocean");
+        p("1. The Town\n2. The desert\n3. The Ocean");
         int a = scanner.nextInt();
         if (a == 1) {
             p("Good choice");
@@ -590,11 +646,14 @@ public class GameFile {
         space();
         int answer = scanner.nextInt();
         if (answer == 1) {
+            gap();
             p("Awesome, there is a forest not far from here you can go there \nThank you");
             p("I will need something to catch some deer, what should I use?");
+            gap();
             p("1. Spear\n2. Bow");
             int a = scanner.nextInt();
             if (a == 1) {
+                gap();
                 p("Alright, let the adventure begin\nGood choice, although it might be harder to the get close to the deer");
                 p("I head out to the forest");
                 p("After snapping of a solid branch and shaving a point into the end I jump into to watch for a deer to come by.");
@@ -618,18 +677,27 @@ public class GameFile {
                 p("...");
                 p("The tailor makes me my new clothes and sends me on my way\nHere is some money for the left over skin as well");
                 // add in about additional money from the deer skins and then u can buy items
+                gap();
                 p("Would like to buy something with your money?");
+                gap();
                 p("1. Yes\n2. No");
                 int answer2 = scanner.nextInt();
                 if (answer2 == 1) {
+                    gap();
                     p("Here is what we sell: \n1. Trap");
+                    gap();
                     int b = scanner.nextInt();
                     if (b == 1) {
+                        gap();
                         p("That will be $10");
+                        gap();
                         p("1. Yes\n2. No");
+                        gap();
                         int c = scanner.nextInt();
                         if (c == 1) {
+                            gap();
                             p("Purchase Complete");
+                            gap();
                             bank += -10;
                             inventoryString += spear;
                         } else if (c == 2) {
