@@ -115,11 +115,11 @@ public class GameFile {
         space();
         p("HP: " + hp);
         space();
-        p("Armour " + myArmour);
+        p("Armour: " + myArmour);
         space();
-        p("Weapon " + myWeapon);
+        p("Weapon: " + myWeapon);
         space();
-        p("Inventory " + inventoryString);
+        p("Inventory: " + inventoryString);
         space();
         gameSetup();
     }
@@ -131,7 +131,9 @@ public class GameFile {
 
     public void gameSetup() {
         p("To play this game you will be asked questions and then given possible responses\nType the answer you want to take exactly as it is stated in the question otherwise the program will ask you to try again\nThis is still in development and I already apologise if this crashes during your game\nPlease let me know if this crashes, where it crashes and why.");
-        p("Welcome, in this game you will go on an adventure\nOn your adventure you will meet things that will help you and things that will try to stop you\nThis adventure is not for the faint of heart\nDo you have what it takes?? (Yes or No)");
+        p("Welcome, in this game you will go on an adventure\nOn your adventure you will meet things that will help you and things that will try to stop you\nThis adventure is not for the faint of heart");
+        space();
+        p("Do you have what it takes??");
         space();
         p("1. Yes\n2. No");
         int answer = scanner.nextInt();
@@ -153,7 +155,7 @@ public class GameFile {
         gap();
         p("Alright, let the adventure begin");
         space();
-        p("My eyes open slowly as the light beams into my eyes\nI am surrounded by trees as the birds chirp above me\n(Who am I? or What do I do?)");
+        p("My eyes open slowly as the light beams into my eyes\nI am surrounded by trees as the birds chirp above me");
         space();
         p("1. Who am I?\n2. What do I do?");
         int answer = scanner.nextInt();
@@ -170,82 +172,6 @@ public class GameFile {
     }
 
     /**
-     * riverCrossing() method This method has the player travelling down a river The
-     * player must type left and right to navigate there way down the river Failure
-     * will result in the player having to do that again
-     */
-    /**
-    public void riverCrossing() {
-        gap();
-        p("Maybe I should go for a walk and try and find someone");
-        space();
-        p("I come to the end of the forest and I can see path and a river");
-        p("What should I do?");
-        space();
-        p("1. Follow the path");
-        int answer = scanner.nextInt();
-        if (answer == 1) {
-            space();
-            p("At the end of the path there is a river\nA boat is on the shore\nI push the boat into the river and jump on\nI sit in this small wooden boat and look at the beautiful mountains in the background\nI hear a rumble in the distance and can see rocks up ahead\nI can see rapids up ahead");
-            space();
-            p("Types (LEFT) or (RIGHT) to steer the boat and avoid the rocks");
-            String answer4 = scanner.nextLine();
-            if (answer4.equals("LEFT")) {
-                space();
-                riverCrossing();
-            } else if (answer4.equals("RIGHT")) {
-                space();
-                p("Types (LEFT) or (RIGHT)");
-                String answer1 = scanner.nextLine();
-                if (answer1.equals("LEFT")) {
-                    space();
-                    p("Types (LEFT) or (RIGHT)");
-                    String answer2 = scanner.nextLine();
-                    if (answer2.equals("LEFT")) {
-                        space();
-                        p("Types (LEFT) or (RIGHT)");
-                        String answer3 = scanner.nextLine();
-                        if (answer3.equals("LEFT")) {
-                            space();
-                            riverCrossing();
-                        } else if (answer3.equals("RIGHT")) {
-                            p("Congratulations, you have successfully made it out of the rocks\nI paddle the boat to the shore line and get out\nGood to be back on dry land");
-                            oldMan();
-                        } else {
-                            p("Please Try Again");
-                            riverCrossing();
-                        }
-                    } else if (answer2.equals("RIGHT")) {
-                        space();
-                        riverCrossing();
-                    } else {
-                        p("Please Try Again");
-                        riverCrossing();
-                    }
-                } else if (answer1.equals("RIGHT")) {
-                    space();
-                    riverCrossing();
-                } else {
-                    p("Please Try Again");
-                    riverCrossing();
-                }
-            } else {
-                gap();
-                p("Please Try Again");
-                p("12");
-                riverCrossing();
-            }
-        }else if(answer == 2){
-            p("other option");
-        } else {
-            p("Please Try Again");
-            riverCrossing();
-        }
-        gap();
-    }
-    */
-
-    /**
      * riverSetup() method
      * This sets up the scene for travelling down the river
      */
@@ -259,8 +185,8 @@ public class GameFile {
         p("1. Follow the path");
         int answer = scanner.nextInt();
         if (answer == 1) {
-            space();
-            p("At the end of the path there is a river\nA boat is on the shore\nI push the boat into the river and jump on\nI sit in this small wooden boat and look at the beautiful mountains in the background\nI hear a rumble in the distance and can see rocks up ahead\nI can see rapids up ahead");
+            gap();
+            p("At the end of the path there is a river\nA boat is on the shore\nI push the boat into the river and jump on\nI sit in this small wooden boat and look at the beautiful mountains in the background\nI hear a rumble in the distance and can see rocks up ahead\nThere are rapids up ahead");
             river(count);
         }else{
             p("Try Again");
@@ -275,29 +201,35 @@ public class GameFile {
      * @param count
      */
     public void river(int count){
+        //executes once through the rapids
         if(count == 0){
             p("Congratulations, you have successfully made it out of the rocks\nI paddle the boat to the shore line and get out\nGood to be back on dry land");
             oldMan();
             gap();
         }
-        //int r = random.nextInt(1);
-        space();
-        p("Type (LEFT) or (RIGHT) to steer the boat and avoid the rocks");
-        String answer4 = scanner.nextLine();
-        if (answer4.equals("LEFT")) {
+
+        //River navigation
+        if(count != 0){
             space();
-            river(count - 1);
-        } else if (answer4.equals("RIGHT")) {
-            space();
-            p("Type (LEFT) or (RIGHT)");
-            river(count - 1);
-        }else{
-            space();
-            //p("Try Again");
-            river(count);
+            p("Type (LEFT) or (RIGHT) to steer the boat to avoid the rocks");
+            String answer4 = scanner.nextLine();
+            if (answer4.equals("LEFT")) {
+                space();
+                river(count--);
+            } else if (answer4.equals("RIGHT")) {
+                space();
+                p("Type (LEFT) or (RIGHT)");
+                river(count--);
+            }//else{
+            //    space();
+                //p("Try Again");
+             //   river(count);
+           // }
+           river(count);
         }
         gap();
     }
+Ben
     /**
      * oldMan() method This method is where the main part of the story starts You
      * meet an old man and he gives a map The player then decides how they want to
@@ -306,6 +238,7 @@ public class GameFile {
     public void oldMan() {
         gap();
         p("You see a house in the distance, and you walk up to it\nKnock of the door\nAn old man opens the door");
+        space();
         p("Old Man: 'How can I help?'");
         space();
         p("1. Where am I?");
