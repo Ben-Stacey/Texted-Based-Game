@@ -35,7 +35,7 @@ public class GameFile {
     private int jaguarHealth = 100;
 
     private String warewolf = "Warewolf";
-    private int warewoldHealth = 100;
+    private int warewolfHealth = 100;
 
     private String manticore = "Manticore";
     private int manticoreHealth = 100;
@@ -587,6 +587,11 @@ public class GameFile {
         gap();
     }
 
+    /**
+     * jaguarFight() 
+     * this method is the fight
+     * @param jaguarHealth
+     */
     public void jaguarFight(int jaguarHealth){
         gap();
         int jag = 100;
@@ -825,7 +830,7 @@ public class GameFile {
         space();
         p("1. Yes\n2. No");
         space();
-        int s = scanner.nextInt();
+        int s = scanner.nextInt(1);
         if (s == 1) {
             p("Awesome, there has been a beast that has been coming and terrorizes the village on every full moon");
             space();
@@ -840,14 +845,47 @@ public class GameFile {
             p("...");
             p("...");
             p("Where should be hide?");
-            p("1. Town hall"); // additonal places to be added
-            p("Night falls\nI sit quietly and wait\nI see a dark grey figure slowly walk into the town\nI run out into the road and I grab my bow\nI load an arrow and aim at the Werewolf(+15)");
-            // put in the fighting mechanic
-            p("Yay I have slain the werewolf\nDo you want to skin the werewolf?");
+            p("1. Town hall\n2. The Barn\n3. The Mill"); // additonal places to be added
+            int r = scanner.nextInt(3);
+            if(r == 1 || r == 2 || r == 3){
+                warewolfFight(count);
+                postWarewolf();
+            }
+        } else if (s == 2) {
+            p("Try Again");
+        } else {
+            p("Try Again");
+        }
+    }
+
+    public void warewolfFight(int warewolfHealth){
+        gap();
+        if(count == 0){
+            postWarewolf();;
+        }
+        p("Night falls\nI sit quietly and wait\nI see a dark grey figure slowly walk into the town\nI grab my bow and run out into the road\nI load an arrow and aim at the Werewolf(+15)");
+        gap();
+        int war = 100;
+        int hit = random.nextInt(40);
+        int damage = war - hit;
+        int attack = random.nextInt(20);
+        int self = myHealth - attack;
+
+        p("Type 'SHOOT' to shoot an arrow at the " + warewolf);
+        space();
+        p("The " + warewolf + "'s health is " + damage);
+        space();
+        p("Your health is " + self);
+        jaguarFight(warewolfHealth - hit);
+    }
+
+    public void postWarewolf(){
+        gap();
+        p("Yay I have slain the werewolf\nDo you want to skin the werewolf?");
             int s1 = scanner.nextInt();
             if (s1 == 1) {
                 skin(warewolf);
-                p("Good job, You have slain the warewold");
+                p("Good job, You have slain the warewolf");
                 warewolfTailor();
                 p("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
                 bank += 500;
@@ -860,11 +898,6 @@ public class GameFile {
             } else {
                 p("Try Again");
             }
-        } else if (s == 2) {
-            p("Try Again");
-        } else {
-            p("Try Again");
-        }
     }
 
     /**
