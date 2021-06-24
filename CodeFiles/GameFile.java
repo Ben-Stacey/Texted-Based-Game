@@ -203,6 +203,7 @@ public class GameFile {
     public void river(int count){
         //executes once through the rapids
         if(count == 0){
+            gap();
             p("Congratulations, you have successfully made it out of the rocks\nI paddle the boat to the shore line and get out\nGood to be back on dry land");
             oldMan();
             gap();
@@ -215,11 +216,11 @@ public class GameFile {
             String answer4 = scanner.nextLine();
             if (answer4.equals("LEFT")) {
                 space();
-                river(count--);
+                river(count - 1);
             } else if (answer4.equals("RIGHT")) {
                 space();
                 p("Type (LEFT) or (RIGHT)");
-                river(count--);
+                river(count - 1);
             }//else{
             //    space();
                 //p("Try Again");
@@ -229,7 +230,7 @@ public class GameFile {
         }
         gap();
     }
-Ben
+
     /**
      * oldMan() method This method is where the main part of the story starts You
      * meet an old man and he gives a map The player then decides how they want to
@@ -245,10 +246,15 @@ Ben
         p("2. Who are you?");
         int answer = scanner.nextInt();
         if (answer == 1) {
+            space();
             p("You are in Big Bloke Land");
             oldMan();
         } else if (answer == 2) {
-            p("My name is Tim\nWho are you?\nI dont know\nWhat can I do around here?");
+            space();
+            p("My name is Tim\nWho are you?");
+            space();
+            p("I dont know\nWhat can I do around here?");
+            space();
             p("There is lots of things to around here, here take this map");
             map();
         } else {
@@ -299,7 +305,9 @@ Ben
      */
     public void shop() {
         gap();
-        p("You walk inside the shop\nHello, I’m going an adventure into the mountains and I need some warm clothes. The only problem is that I haven’t got any money\nHmmm, well I need some 3 new deer skins to make clothes and if you collect them ill make you your clothes for free. Do you accept?");
+        p("You walk inside the shop\nHello, I’m going an adventure into the mountains and I need some warm clothes. The only problem is that I haven’t got any money");
+        space();
+        p("Hmmm, well I need some 3 new deer skins to make clothes and if you collect them ill make you your clothes for free. Do you accept?");
         hunting();
         gap();
     }
@@ -615,7 +623,10 @@ Ben
         int answer = scanner.nextInt();
         if (answer == 1) {
             gap();
-            p("Awesome, there is a forest not far from here you can go there \nThank you");
+            p("Awesome, there is a forest not far from here you can go there");
+            space();
+            p("Thank you");
+            space();
             p("I will need something to catch some deer, what should I use?");
             gap();
             p("1. Spear\n2. Bow");
@@ -645,7 +656,13 @@ Ben
                 p("...");
                 p("The tailor makes me my new clothes and sends me on my way\nHere is some money for the left over skin as well");
                 // add in about additional money from the deer skins and then u can buy items
-                gap();
+            }
+        }
+        gap();
+    }
+
+    public void postHuntingPurchasing(){
+        gap();
                 p("Would like to buy something with your money?");
                 gap();
                 p("1. Yes\n2. No");
@@ -694,7 +711,6 @@ Ben
             p("Try Again");
             hunting();
         }
-        gap();
     }
 
     /**
