@@ -269,7 +269,7 @@ public class GameFile {
         space();
         p("Where should we go?");
         space();
-        p("1. The Town\n2. The desert\n3. The Ocean");
+        p("1. The Shop\n2. The Desert\n3. The Ocean\n4. The Mountains");
         int a = scanner.nextInt();
         if (a == 1) {
             space();
@@ -299,7 +299,8 @@ public class GameFile {
     }
 
     /**
-     * shop() method The shop method intoduces the player in to the purchasing
+     * shop() method 
+     * The shop method intoduces the player in to the purchasing
      * system in the game You can do challenged for the shop keeper which will earn
      * you moeny
      */
@@ -307,13 +308,23 @@ public class GameFile {
         gap();
         p("You walk inside the shop\nHello, I’m going an adventure into the mountains and I need some warm clothes. The only problem is that I haven’t got any money");
         space();
-        p("Hmmm, well I need some 3 new deer skins to make clothes and if you collect them ill make you your clothes for free. Do you accept?");
-        hunting();
-        gap();
+        p("Well I have some jobs that'll pay you to do");
+        p("Here pick one");
+        space();
+        p("1. Hunting\n2. Logging\n3. Fishing");
+        int answer = scanner.nextInt();
+        if(answer == 1){
+            hunting();
+        }else if(answer == 2){
+            logging();
+        }else if(answer == 3){
+            fishing();
+        }
     }
 
     /**
-     * desert() method Takes the user to the desert
+     * desert() method 
+     * Takes the user to the desert
      */
     public void desert() {
         gap();
@@ -390,7 +401,8 @@ public class GameFile {
     }
 
     /**
-     * ocean() method Takes the player to the ocean
+     * ocean() method 
+     * Takes the player to the ocean
      */
     public void ocean() {
         gap();
@@ -406,19 +418,28 @@ public class GameFile {
     }
 
     /**
-     * mountain() method Takes the player to the mountains
+     * mountain() method 
+     * Takes the player to the mountains
      */
     public void mountain() {
         gap();
-        p("I see the same man standing a few doors down and go talk to him\nI tell him how I am on an adventure into the mountains and ask him is there is anything I may need before I go there\nHe looks at me with a terrifying look\nYou know what’s in those mountains, don’t you?");
+        p("I see the same man standing a few doors down and go talk to him\nI tell him how I am on an adventure into the mountains and ask him is there is anything I may need before I go there\nHe looks at me with a terrifying look");
+        space();
+        p("You know what’s in those mountains, don’t you?");
         space();
         p("1. Yes\n2. No");
         int s = scanner.nextInt();
         if (s == 1) {
-            p("Yes, but do have anything else to tell me about it?\nThere are dangerous beasts that live in those mountains \nI even hear there is a dragon that protects the highest peak\nNo man has ever come out of there alive");
+            p("Ok, but do have anything else to tell me about it?");
+            space();
+            p("There are dangerous beasts that live in those mountains \nI even hear there is a dragon that protects the highest peak\nNo man has ever come out of there alive");
+            space();
+            p("I think you should go somewhere else");
             map();
         } else if (s == 2) {
             p("There are dangerous beasts that live in those mountains \nI even hear there is a dragon that protects the highest peak\nNo man has ever come out of there alive");
+            space();
+            p("I think you should go somewhere else");
             map();
         } else {
             p("Try Again");
@@ -430,7 +451,8 @@ public class GameFile {
     }
 
     /**
-     * randomTask() This is called in the mayor class, when called randomly picks
+     * randomTask() method
+     * This is called in the mayor class, when called randomly picks
      * the task you can do
      */
     public void randomTask() {
@@ -445,7 +467,8 @@ public class GameFile {
     }
 
     /**
-     * mayor() method The mayor gives out job which can get you money
+     * mayor() method 
+     * The mayor gives out job which can get you money
      */
     public void mayor() {
         gap();
@@ -466,7 +489,8 @@ public class GameFile {
     }
 
     /**
-     * fishing() method Fishing is a method that allows you to get money
+     * fishing() method 
+     * Fishing is a method that allows you to get money
      */
     public void fishing() {
         gap();
@@ -566,7 +590,11 @@ public class GameFile {
      */
     public void logging() {
         gap();
-        p("Awesome, I need you to collect some wood for the new barn we are building\nThere is a forest near by where you can cut some trees down\nBut I don’t have an axe\nHere take this axe ");
+        p("Awesome, I need you to collect some wood for the new barn we are building\nThere is a forest near by where you can cut some trees down");
+        space();
+        p("But I don’t have an axe");
+        space();
+        p("Here take this axe ");
         inventoryString += axe;
         p("...");
         p("...");
@@ -656,52 +684,9 @@ public class GameFile {
                 p("...");
                 p("The tailor makes me my new clothes and sends me on my way\nHere is some money for the left over skin as well");
                 // add in about additional money from the deer skins and then u can buy items
-            }
-        }
-        gap();
-    }
-
-    public void postHuntingPurchasing(){
-        gap();
-                p("Would like to buy something with your money?");
-                gap();
-                p("1. Yes\n2. No");
-                int answer2 = scanner.nextInt();
-                if (answer2 == 1) {
-                    gap();
-                    p("Here is what we sell: \n1. Trap");
-                    gap();
-                    int b = scanner.nextInt();
-                    if (b == 1) {
-                        gap();
-                        p("That will be $10");
-                        gap();
-                        p("1. Yes\n2. No");
-                        gap();
-                        int c = scanner.nextInt();
-                        if (c == 1) {
-                            gap();
-                            p("Purchase Complete");
-                            gap();
-                            bank += -10;
-                            inventoryString += spear;
-                        } else if (c == 2) {
-                            // p("Try Again");
-                            // bank = -10;
-                        } else {
-                            p("Try Again");
-                        }
-                    } else {
-                        p("Try Again");
-                    }
-                } else if (answer2 == 2) {
-                    // other items
-                } else {
-                    p("Try Again");
-                }
-            } else if (a == 2) {
+            } else if(a == 2) {
                 // p("Alright, let the adventure begin");
-            } else {
+            } else{
                 p("Please Try Again");
             }
         } else if (answer == 2) {
@@ -710,6 +695,47 @@ public class GameFile {
         } else {
             p("Try Again");
             hunting();
+        }
+        gap();
+    }
+
+    public void postHuntingPurchasing(){
+        gap();
+        p("Would like to buy something with your money?");
+        gap();
+        p("1. Yes\n2. No");
+        int answer2 = scanner.nextInt();
+        if (answer2 == 1) {
+            gap();
+            p("Here is what we sell: \n1. Trap");
+            gap();
+            int b = scanner.nextInt();
+            if (b == 1) {
+                gap();
+                p("That will be $10");
+                gap();
+                p("1. Yes\n2. No");
+                gap();
+                int c = scanner.nextInt();
+                if (c == 1) {
+                    gap();
+                    p("Purchase Complete");
+                    gap();
+                    bank += -10;
+                    inventoryString += spear;
+                } else if (c == 2) {
+                    // p("Try Again");
+                    // bank = -10;
+                } else {
+                    p("Try Again");
+                }
+            } else {
+                p("Try Again");
+            }
+        } else if (answer2 == 2) {
+            // other items
+        } else {
+            p("Try Again");
         }
     }
 
