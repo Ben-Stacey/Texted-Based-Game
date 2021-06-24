@@ -265,6 +265,10 @@ public class GameFile {
         gap();
     }
 
+    /**
+     * map() method
+     * this is what shows all the possible places you can travel too
+     */
     public void map(){
         p(""); // map insert here, arguments
         space();
@@ -731,6 +735,10 @@ public class GameFile {
         gap();
     }
 
+    /**
+     * postHuntingPurchasing() method
+     * this is what happens after a hunting session has happened
+     */
     public void postHuntingPurchasing(){
         gap();
         p("Would like to buy something with your money?");
@@ -858,6 +866,10 @@ public class GameFile {
         }
     }
 
+    /** 
+     * warewolfFight() method
+     * this is the method that controls the fight mechanics
+     */
     public void warewolfFight(int warewolfHealth){
         gap();
         if(count == 0){
@@ -879,25 +891,29 @@ public class GameFile {
         jaguarFight(warewolfHealth - hit);
     }
 
+    /**
+     * postWarewolf() methos
+     * this is after the fight has been 
+     */
     public void postWarewolf(){
         gap();
         p("Yay I have slain the werewolf\nDo you want to skin the werewolf?");
-            int s1 = scanner.nextInt();
-            if (s1 == 1) {
-                skin(warewolf);
-                p("Good job, You have slain the warewolf");
-                warewolfTailor();
-                p("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
-                bank += 500;
-                bank();
-            } else if (s1 == 2) {
-                p("Good job, You have slain the warewolf");
-                p("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
-                bank += 500;
-                bank();
-            } else {
-                p("Try Again");
-            }
+        int s1 = scanner.nextInt();
+        if (s1 == 1) {
+            skin(warewolf);
+            p("Good job, You have slain the warewolf");
+            warewolfTailor();
+            p("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
+            bank += 500;
+            bank();
+        } else if (s1 == 2) {
+            p("Good job, You have slain the warewolf");
+            p("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
+            bank += 500;
+            bank();
+        } else {
+            p("Try Again");
+        }
     }
 
     /**
