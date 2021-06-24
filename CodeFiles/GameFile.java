@@ -12,6 +12,7 @@ public class GameFile {
 
     private String myWeapon = "Empty";
     private String myArmour = "Empty";
+    private int myHealth = 100;
 
     private String bow = "Bow";
     private String arrow = "Arrow";
@@ -22,22 +23,22 @@ public class GameFile {
     private String axe = "Axe";
 
     private String basilisk = "Basilisk";
-    private int basiliskHealth = 10;
+    private int basiliskHealth = 100;
 
     private String centor = "Centor";
-    private int centorHealth = 10;
+    private int centorHealth = 100;
 
     private String troll = "troll";
-    private int trollHealth = 10;
+    private int trollHealth = 100;
 
     private String jaguar = "Jaguar";
-    private int jaguarHealth = 10;
+    private int jaguarHealth = 100;
 
     private String warewolf = "Warewolf";
-    private int warewoldHealth = 10;
+    private int warewoldHealth = 100;
 
     private String manticore = "Manticore";
-    private int manticoreHealth = 10;
+    private int manticoreHealth = 100;
 
     private String basiliskSkin = "Basilish Skin";
     private String trollSkin = "Troll Skin";
@@ -566,6 +567,7 @@ public class GameFile {
     public void jaguar() {
         gap();
         p("Which weapone should we use?");
+        space();
         p("1. Bow\n2. Axe");
         int s = scanner.nextInt();
         if (s == 1) {
@@ -585,6 +587,22 @@ public class GameFile {
         gap();
     }
 
+    public void jaguarFight(int jaguarHealth){
+        gap();
+        int jag = 100;
+        int hit = random.nextInt(40);
+        int damage = jag - hit;
+        int attack = random.nextInt(20);
+        int self = myHealth - attack;
+
+        p("Type 'ATTACK' to fight the " + jaguar);
+        space();
+        p("The " + jaguar + "'s health is " + damage);
+        space();
+        p("Your health is " + self);
+        jaguarFight(jaguarHealth - hit);
+    }
+
     /**
      * logging() method Logging is a method that allows you to get money
      */
@@ -599,11 +617,16 @@ public class GameFile {
         p("...");
         p("...");
         p("...");
-        p("I arrive at the forest and start to cut down my first tree\n“russel” “russel”\nI turn around as I hear something in the bushes behind me\nA jaguar jumps out of the bush");
-        p("Do I want to fight the " + jaguar + " (15HP)");
-        int s = scanner.nextInt();
+        p("I arrive at the forest and start to cut down my first tree");
+        space();
+        p("“russel” “russel”");
+        space();
+        p("I turn around as I hear something in the bushes behind me\nA jaguar jumps out of the bush");
+        space();
+        p("Do you want to fight the " + jaguar + " (15HP)");
         space();
         p("1. Yes\n2. No");
+        int s = scanner.nextInt();
         if (s == 1) {
             jaguar();
             p("I finish off cutting down some and after a few hours of hard work I have dragged all the tree back to the village");
