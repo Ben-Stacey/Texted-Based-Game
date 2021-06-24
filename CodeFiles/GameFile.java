@@ -631,12 +631,16 @@ public class GameFile {
             jaguar();
             p("I finish off cutting down some and after a few hours of hard work I have dragged all the tree back to the village");
             bank += 500;
+            space();
             bank();
+            space();
             warewolf();
         } else if (s == 2) {
             p("Ok\nI finish off cutting down some and after a few hours of hard work I have dragged all the tree back to the village");
             bank += 500;
+            space();
             bank();
+            space();
             warewolf();
         } else {
             p("Try Again");
@@ -814,10 +818,24 @@ public class GameFile {
      * warewolf() In this method the fighting the warewolf
      */
     public void warewolf() {
-        p("I went and talked to the mayor\nWe really needed your help\nDo you want to help?\n1. Yes\n2. No");
+        gap();
+        p("I went and talked to the mayor\nWe really needed your help");
+        space();
+        p("Do you want to help?");
+        space();
+        p("1. Yes\n2. No");
+        space();
         int s = scanner.nextInt();
         if (s == 1) {
-            p("Awesome, there has been a beast that has been coming and terrorizes the village on every full moon\nWhat kind of beast?\nIt is a werewolf!\nHow am I going to fight it I don’t have any weapons?\nHere take thig dagger and shield \nThe next full moon is tonight, wait here until nightfall and the beast will appear");
+            p("Awesome, there has been a beast that has been coming and terrorizes the village on every full moon");
+            space();
+            p("What kind of beast?");
+            space();
+            p("It is a werewolf!");
+            space();
+            p("How am I going to fight it I don’t have any weapons?");
+            space();
+            p("Here take thig dagger and shield \nThe next full moon is tonight, wait here until nightfall and the beast will appear");
             p("...");
             p("...");
             p("...");
@@ -835,7 +853,7 @@ public class GameFile {
                 bank += 500;
                 bank();
             } else if (s1 == 2) {
-                p("Good job, You have slain the warewold");
+                p("Good job, You have slain the warewolf");
                 p("I went and talked to the mayor\nNice job, we really needed your help\nHere you go +$500");
                 bank += 500;
                 bank();
