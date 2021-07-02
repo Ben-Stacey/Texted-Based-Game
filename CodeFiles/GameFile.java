@@ -92,6 +92,10 @@ public class GameFile {
     private int count = 3;
     private String caveCombination = "";
 
+    private boolean hunting = true;
+    private boolean fishing = true;
+    private boolean logging = true;
+
     /**
      * Starts off the running of the program. Only need to call the first method and
      * the rest of the calls re imbedded in the methods so that the next method
@@ -311,20 +315,23 @@ public class GameFile {
      */
     public void shop() {
         gap();
-        p("You walk inside the shop\nHello, I’m going an adventure into the mountains and I need some warm clothes. The only problem is that I haven’t got any money");
+        p("You walk inside the shop");
+        space();
+        p("Hello, I’m going an adventure into the mountains and I need some warm clothes. The only problem is that I haven’t got any money");
         space();
         p("Well I have some jobs that'll pay you to do");
         p("Here pick one");
         space();
         p("1. Hunting\n2. Logging\n3. Fishing");
         int answer = scanner.nextInt();
-        if(answer == 1){
+        if(answer == 1 && hunting){
             hunting();
-        }else if(answer == 2){
+        }else if(answer == 2 && logging){
             logging();
-        }else if(answer == 3){
+        }else if(answer == 3 && fishing){
             fishing();
         }
+        cave();
     }
 
     /**
@@ -461,12 +468,12 @@ public class GameFile {
      * the task you can do
      */
     public void randomTask() {
-        int r = random.nextInt(2);
-        if (r == 0) {
+        int r = random.nextInt(3);
+        if (r == 0 && fishing) {
             fishing();
-        } else if (r == 1) {
+        } else if (r == 1 && hunting) {
             hunting();
-        } else if (r == 2) {
+        } else if (r == 2 && logging) {
             logging();
         }
     }
@@ -498,6 +505,7 @@ public class GameFile {
      * Fishing is a method that allows you to get money
      */
     public void fishing() {
+        fishing = false;
         gap();
         p("Awesome, we need some more fish for the village\nhere is a river not far from here full of fish");
         p("...");
@@ -575,12 +583,12 @@ public class GameFile {
         p("1. Bow\n2. Axe");
         int s = scanner.nextInt();
         if (s == 1) {
-            // repeat until dead
+            jaguarFight(jaguarHealth);
             health();
             p("The " + jaguar + " is dead!");
             skin(jaguar);
         } else if (s == 2) {
-            // repeat until dead
+            jaguarFight(jaguarHealth);
             health();
             p("The " + jaguar + " is dead!");
             skin(jaguar);
@@ -616,6 +624,7 @@ public class GameFile {
      * logging() method Logging is a method that allows you to get money
      */
     public void logging() {
+        logging = false;
         gap();
         p("Awesome, I need you to collect some wood for the new barn we are building\nThere is a forest near by where you can cut some trees down");
         space();
@@ -628,11 +637,11 @@ public class GameFile {
         p("...");
         p("I arrive at the forest and start to cut down my first tree");
         space();
-        p("“russel” “russel”");
+        p("*Russel* *Russel*");
         space();
         p("I turn around as I hear something in the bushes behind me\nA jaguar jumps out of the bush");
         space();
-        p("Do you want to fight the " + jaguar + " (15HP)");
+        p("Do you want to fight the " + jaguar + " (100HP)");
         space();
         p("1. Yes\n2. No");
         int s = scanner.nextInt();
@@ -681,6 +690,7 @@ public class GameFile {
      * hunting() method Hunting is a method that allows you to get money
      */
     public void hunting() {
+        hunting = false;
         gap();
         p("1. Yes\n2. No");
         space();
@@ -892,7 +902,7 @@ public class GameFile {
     }
 
     /**
-     * postWarewolf() methos
+     * postWarewolf() method
      * this is after the fight has been 
      */
     public void postWarewolf(){
@@ -917,19 +927,26 @@ public class GameFile {
     }
 
     /**
-     * warewolfTailor() method method that allows you to get the warewold skin made
+     * warewolfTailor() 
+     * method method that allows you to get the warewold skin made
      * into things you can also sell it here
      */
     public void warewolfTailor() {
+        gap();
         p("You can sell the skin at the local shop\nWalk into the shop\nI have a werewold\nNice would you like to sell it or craft it into something");
+        space();
         p("1. Sell\n2. Craft");
+        space();
         int s = scanner.nextInt();
         if (s == 1) {
             p("Thanks, here $500");
             bank += 500;
             p("");
         } else if (s == 2) {
-            p("What do you want to craft?\n1. Furr Jacket\n2. Furr Pants");
+            p("What do you want to craft?");
+            space();
+            p("1. Furr Jacket\n2. Furr Pants");
+            space();
             int s1 = scanner.nextInt();
             if (s1 == 1) {
                 p("Ok, that'll be $50");
@@ -956,8 +973,8 @@ public class GameFile {
     }
 
     /**
-     * enterMountain() method The player decideds that they will travel to the
-     * mountains
+     * enterMountain() method 
+     * The player decideds that they will travel to the mountains
      */
     public void enterMountain() {
         int r = scanner.nextInt();
@@ -977,8 +994,8 @@ public class GameFile {
     }
 
     /**
-     * combination() method for solving the cave combination must be correct to
-     * enter
+     * combination() 
+     * method for solving the cave combination must be correct to enter
      */
     public void combination() {
         p("There is a lock on the cave\nComplete the combination to gain access to the cave");
