@@ -707,11 +707,11 @@ public class GameFile {
             int a = scanner.nextInt();
             if (a == 1) {
                 gap();
-                p("Alright, let the adventure begin\nGood choice, although it might be harder to the get close to the deer");
+                p("Good choice, although it might be hard to the get close to the deer");
                 p("I head out to the forest");
-                p("After snapping of a solid branch and shaving a point into the end I jump into to watch for a deer to come by.");
+                p("After snapping of a solid branch and carving the end into a point, I hide in a bush and wait for a deer to come by.");
                 inventoryString += spear;
-                p("Item accpired " + spear);
+                p("Item accquired " + spear);
                 p("Item has been added to your inventory");
                 p("...");
                 p("...");
